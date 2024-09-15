@@ -14,8 +14,6 @@
 - [Usage](#usage)
 - [Learn More](#learn-more)
 - [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
 
 ---
 
