@@ -5,7 +5,6 @@
 ## Table of Contents
 
 - [Features](#features)
-- [Demo](#demo)
 - [Built With](#built-with)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
@@ -24,9 +23,6 @@
 - **User-Friendly Interface**: Simple and intuitive design for a seamless user experience.
 - **Real-Time Feedback**: Instant suggestions as you type.
 
-## Demo
-
-Check out the live demo [here](#).
 
 ## Built With
 
