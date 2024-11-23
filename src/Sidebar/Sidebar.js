@@ -7,26 +7,27 @@ import {
   FaQuoteRight,
   FaLanguage,
   FaPenNib,
-} from "react-icons/fa"; // Import icons from react-icons
+} from "react-icons/fa"; // Icons for sidebar options
 
 const Sidebar = () => {
   const options = [
-    { icon: <FaFileAlt />, label: "Paraphraser" },
-    { icon: <FaCheckCircle />, label: "Grammar Checker" },
-    { icon: <FaRobot />, label: "AI Detector" },
-    { icon: <FaSearch />, label: "Plagiarism Checker" },
-    { icon: <FaQuoteRight />, label: "Summarizer" },
-    { icon: <FaLanguage />, label: "Translator" },
-    { icon: <FaPenNib />, label: "Citation Generator" },
+    { icon: <FaFileAlt />, label: "Paraphraser", color: "#2ECC71" },
+    { icon: <FaCheckCircle />, label: "Grammar Checker", color: "#FF6F61" },
+    { icon: <FaRobot />, label: "AI Detector", color: "#F4D03F" },
+    { icon: <FaSearch />, label: "Plagiarism Checker", color: "#E67E22" },
+    { icon: <FaQuoteRight />, label: "Summarizer", color: "#8E44AD" },
+    { icon: <FaLanguage />, label: "Translator", color: "#34495E" },
+    { icon: <FaPenNib />, label: "Citation Generator", color: "#3498DB" },
   ];
 
   return (
     <div style={styles.sidebar}>
-      <h2 style={styles.logo}>PhrasePerfect</h2>
       <ul style={styles.options}>
         {options.map((option, index) => (
           <li key={index} style={styles.option}>
-            <div style={styles.icon}>{option.icon}</div>
+            <div style={{ ...styles.icon, backgroundColor: option.color }}>
+              {option.icon}
+            </div>
             <span style={styles.label}>{option.label}</span>
           </li>
         ))}
@@ -37,19 +38,21 @@ const Sidebar = () => {
 
 const styles = {
   sidebar: {
-    width: "250px",
-    backgroundColor: "#f9f9f9",
-    boxShadow: "2px 0 5px rgba(0, 0, 0, 0.1)",
+    width: "220px",
+    backgroundColor: "white",
+    boxShadow: "0px 0 5px rgba(0, 0, 0, 0)",
+    borderRight:"1px solid #ddd",
     padding: "20px",
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
+    alignItems: "flex-start",
   },
   logo: {
     fontSize: "1.5rem",
     color: "#6F469C",
     marginBottom: "20px",
     fontWeight: "bold",
+    alignSelf: "center",
   },
   options: {
     listStyleType: "none",
@@ -65,18 +68,23 @@ const styles = {
     marginBottom: "10px",
     cursor: "pointer",
     transition: "background-color 0.3s ease",
+    fontFamily: "'Arial', sans-serif",
   },
   icon: {
-    fontSize: "1.2rem",
-    color: "#6F469C",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "40px",
+    height: "40px",
+    borderRadius: "50%",
+    color: "#fff",
     marginRight: "10px",
+    fontSize: "1.2rem",
   },
   label: {
     fontSize: "1rem",
     color: "#333",
-  },
-  optionHover: {
-    backgroundColor: "#e0e0e0",
+    fontWeight: "500",
   },
 };
 

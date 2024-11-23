@@ -10,15 +10,17 @@ const Header = () => {
 
 const styles = {
   header: {
-    backgroundColor: "#6F469C",
-    color: "white",
+    backgroundColor: "white",
+    color: "#6F469C",
     padding: "10px 20px",
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "left",
     alignItems: "center",
+    borderBottom: "1px solid #ddd",
+
   },
   logo: {
-    fontSize: "1.5rem",
+    fontSize: "1.9rem",
     fontWeight: "bold",
     margin: 0,
   },

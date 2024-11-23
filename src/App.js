@@ -1,17 +1,24 @@
 import React from "react";
 import Sidebar from "./Sidebar/Sidebar";
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
 
 const App = () => {
   return (
-    <div style={styles.container}>
-      <Sidebar />
-      <div style={styles.content}>
-        <h1>Welcome to PhrasePerfect</h1>
-        <p>Select an option from the sidebar to get started.</p>
+    <div style={styles.page}>
+      <Header />
+      <div style={styles.container}>
+        <Sidebar />
+        <main style={styles.content}>
+          <h1>Welcome to PhrasePerfect</h1>
+          <p>Select an option from the sidebar to get started.</p>
+        </main>
       </div>
+      <Footer />
     </div>
   );
 };
+
 
 const styles = {
   container: {
