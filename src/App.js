@@ -1,35 +1,47 @@
 import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const App = () => {
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>Choose an Action</h1>
-      <div style={styles.buttonContainer}>
-        <div
-          style={styles.button}
-          onClick={() => alert("Paraphrase button clicked!")}
-        >
-          Paraphrase
+    <div style={styles.page}>
+      <Header />
+      <main style={styles.container}>
+        <h1 style={styles.title}>Choose an Action</h1>
+        <div style={styles.buttonContainer}>
+          <div
+            style={styles.button}
+            onClick={() => alert("Paraphrase button clicked!")}
+          >
+            Paraphrase
+          </div>
+          <div
+            style={styles.button}
+            onClick={() => alert("Check Grammar button clicked!")}
+          >
+            Check Grammar
+          </div>
         </div>
-        <div
-          style={styles.button}
-          onClick={() => alert("Check Grammar button clicked!")}
-        >
-          Check Grammar
-        </div>
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 };
 
 const styles = {
+  page: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    minHeight: "100vh",
+  },
   container: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center",
-    height: "100vh",
-    backgroundColor: "#f9f9f9",
+    justifyContent: "flex-start",
+    flexGrow: 1,
+    marginTop: "5vh",
     fontFamily: "'Arial', sans-serif",
   },
   title: {
@@ -40,6 +52,7 @@ const styles = {
   buttonContainer: {
     display: "flex",
     gap: "20px",
+    marginTop: "20px",
   },
   button: {
     padding: "10px 20px",
@@ -53,9 +66,6 @@ const styles = {
     textAlign: "center",
     boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
     transition: "all 0.3s ease",
-  },
-  buttonHover: {
-    backgroundColor: "#5A3A82",
   },
 };
 
