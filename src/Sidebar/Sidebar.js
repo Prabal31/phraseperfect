@@ -7,6 +7,7 @@ import {
   FaQuoteRight,
   FaLanguage,
   FaPenNib,
+  FaStream,
 } from "react-icons/fa"; // Icons for sidebar options
 
 const Sidebar = () => {
@@ -18,6 +19,7 @@ const Sidebar = () => {
     { icon: <FaQuoteRight />, label: "Summarizer", color: "#8E44AD" },
     { icon: <FaLanguage />, label: "Translator", color: "#34495E" },
     { icon: <FaPenNib />, label: "Citation Generator", color: "#3498DB" },
+    { icon: <FaStream />, label: "Flow", description: "Write with AI", color: "#5DADE2" },
   ];
 
   return (

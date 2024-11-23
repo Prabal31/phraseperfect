@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar from "./Sidebar/Sidebar";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
+import HomePage from "./Home/HomePage";
 
 const App = () => {
   return (
@@ -10,8 +11,7 @@ const App = () => {
       <div style={styles.container}>
         <Sidebar />
         <main style={styles.content}>
-          <h1>Welcome to PhrasePerfect</h1>
-          <p>Select an option from the sidebar to get started.</p>
+          <HomePage />
         </main>
       </div>
       <Footer />
