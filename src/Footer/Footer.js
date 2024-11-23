@@ -15,6 +15,8 @@ const styles = {
     padding: "10px 20px",
     textAlign: "center",
     marginTop: "auto",
+    top: 0, // Sticks it to the top
+    left: 0,
   },
   text: {
     margin: 0,
