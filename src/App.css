@@ -6,9 +6,7 @@
   height: 40vmin;
   pointer-events: none;
 }
-.h1{
-  text-align: center;
-}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
