@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <header style={styles.header}>
           <h1 style={styles.logo}>PhrasePerfect</h1>
-          <span style={styles.icon}><MdOutlineAccountCircle style={styles.icon} /></span>
+          <span ><MdOutlineAccountCircle style={styles.icon} /></span>
         </header>
       );
     };
@@ -31,9 +31,10 @@ const styles = {
     fontWeight: "bold",
     margin: 0,
   },
-  account_logo: {
+  icon: {
     fontSize: "2rem",
     cursor: "pointer",
+    color:"black"
 
   },
 };
