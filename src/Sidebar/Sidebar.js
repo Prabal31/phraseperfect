@@ -39,16 +39,18 @@ const Sidebar = () => {
 };
 
 const styles = {
-  sidebar: {
-    width: "220px",
-    backgroundColor: "white",
-    boxShadow: "0px 0 5px rgba(0, 0, 0, 0)",
-    borderRight:"1px solid #ddd",
-    padding: "20px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-  },
+    sidebar: {
+        width: "220px",
+        backgroundColor: "white",
+        boxShadow: "0px 0 5px rgba(0, 0, 0, 0)", // No shadow
+        borderRight: "1px solid #ddd", // Subtle border
+        padding: "20px", 
+        paddingTop: "80px", 
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+      },
+      
   logo: {
     fontSize: "1.5rem",
     color: "#6F469C",

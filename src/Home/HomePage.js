@@ -64,6 +64,7 @@ const styles = {
     fontFamily: "'Arial', sans-serif",
     color: "#333",
     lineHeight: "1.6",
+
   },
   hero: {
     display: "flex",
