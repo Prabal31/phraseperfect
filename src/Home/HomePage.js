@@ -1,5 +1,8 @@
 import React from "react";
 import { FaFileAlt, FaCheckCircle, FaRobot, FaSearch, FaQuoteRight, FaLanguage, FaPenNib, FaStream } from "react-icons/fa";
+import CompanyLogo from "../Assets/Company_logo.png";
+
+
 
 const HomePage = () => {
   const tools = [
@@ -28,13 +31,12 @@ const HomePage = () => {
             <span style={{ marginRight: "8px" }}>🌐</span>Add to Edge. It's Free
           </button>
         </div>
-        <img
-          src="https://via.placeholder.com/400x250" // Replace with your image URL
-          alt="Writing Preview"
-          style={styles.heroImage}
-        />
-      </section>
+        <img 
+        src={CompanyLogo} 
+        alt="Company Logo" 
+        style={{ width: "400px", height: "auto" }} />
 
+      </section>
 
       {/* Tools Section */}
       <section style={styles.tools}>
