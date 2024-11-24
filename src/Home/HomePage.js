@@ -1,11 +1,5 @@
 
-To make the icons clickable and navigable to their respective components, you'll need to use the Link component from react-router-dom to wrap each icon or the entire tool card in the HomePage component. This will make each tool card act as a clickable element that navigates to a designated route when clicked.
 
-Here's how you can update your HomePage component to include clickable icons using the Link component:
-
-Updated HomePage Component with Clickable Icons
-javascript
-Copy code
 import React from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { FaFileAlt, FaCheckCircle, FaRobot, FaQuoteRight, FaLanguage, FaPenNib } from "react-icons/fa";
