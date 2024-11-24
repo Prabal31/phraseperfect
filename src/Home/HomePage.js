@@ -8,7 +8,6 @@ const HomePage = () => {
   const tools = [
     { icon: <FaFileAlt />, title: "Paraphraser", description: "Increase fluency", color: "#2ECC71" },
     { icon: <FaCheckCircle />, title: "Grammar Checker", description: "Fix mistakes", color: "#FF6F61" },
-    { icon: <FaSearch />, title: "Plagiarism Checker", description: "Prevent plagiarism", color: "#E67E22" },
     { icon: <FaRobot />, title: "AI Detector", description: "Analyze text", color: "#F4D03F" },
     { icon: <FaQuoteRight />, title: "Summarizer", description: "Summarize text", color: "#8E44AD" },
     { icon: <FaLanguage />, title: "Translator", description: "Unlock languages", color: "#34495E" },
@@ -41,7 +40,7 @@ const HomePage = () => {
       {/* Tools Section */}
       <section style={styles.tools}>
         <h2 style={styles.toolsTitle}>
-          Eight tools. <span style={styles.toolsHighlight}>One platform.</span>
+          Seven tools. <span style={styles.toolsHighlight}>One platform.</span>
         </h2>
         <div style={styles.toolGrid}>
           {tools.map((tool, index) => (

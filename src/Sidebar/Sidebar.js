@@ -18,7 +18,6 @@ const Sidebar = () => {
     { icon: <FaFileAlt />, label: "Paraphraser", color: "#2ECC71", path: "/paraphrase" },
     { icon: <FaCheckCircle />, label: "Grammar Checker", color: "#FF6F61", path: "/grammar-checker" },
     { icon: <FaRobot />, label: "AI Detector", color: "#F4D03F", path: "/ai-detector" },
-    { icon: <FaSearch />, label: "Plagiarism Checker", color: "#E67E22", path: "/plagiarism-checker" },
     { icon: <FaQuoteRight />, label: "Summarizer", color: "#8E44AD", path: "/summarizer" },
     { icon: <FaLanguage />, label: "Translator", color: "#34495E", path: "/translator" },
     { icon: <FaPenNib />, label: "Citation Generator", color: "#3498DB", path: "/citation-generator" },
