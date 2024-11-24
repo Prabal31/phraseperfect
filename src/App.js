@@ -4,7 +4,9 @@ import Sidebar from "./Sidebar/Sidebar";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import HomePage from "./Home/HomePage";
-import ParaphrasingTool from "./Tools/ParaphrasingTool"; // Add your paraphraser tool page/component
+import ParaphrasingTool from "./Tools/ParaphrasingTool"; 
+import GrammarcheckerTool from "./Tools/GrammarcheckerTool"; 
+
 
 const App = () => {
   return (
@@ -18,6 +20,7 @@ const App = () => {
               {/* Define the routes for different pages */}
               <Route path="/" element={<HomePage />} />
               <Route path="/paraphrase" element={<ParaphrasingTool />} />
+              <Route path="/grammar-checker" element={<GrammarcheckerTool />} />
               {/* Add more routes here for other tools */}
             </Routes>
           </main>
