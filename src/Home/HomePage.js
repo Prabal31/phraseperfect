@@ -120,6 +120,7 @@ const styles = {
   tools: {
     textAlign: "center",
   },
+  
   toolsTitle: {
     fontSize: "2rem",
     marginBottom: "20px",
