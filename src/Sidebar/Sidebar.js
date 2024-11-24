@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   FaFileAlt,
   FaCheckCircle,
@@ -12,8 +12,6 @@ import {
 } from "react-icons/fa"; // Icons for sidebar options
 
 const Sidebar = () => {
-  const location = useLocation(); // Get the current route
-
   const options = [
     { icon: <FaFileAlt />, label: "Paraphraser", color: "#2ECC71", path: "/paraphrase" },
     { icon: <FaCheckCircle />, label: "Grammar Checker", color: "#FF6F61", path: "/grammar-checker" },
@@ -29,15 +27,7 @@ const Sidebar = () => {
     <div style={styles.sidebar}>
       <ul style={styles.options}>
         {options.map((option, index) => (
-          <li
-            key={index}
-            style={{
-              ...styles.option,
-              ...(location.pathname === option.path
-                ? { ...styles.activeOption, borderLeftColor: option.color }
-                : {}),
-            }}
-          >
+          <li key={index} style={styles.option}>
             <Link to={option.path} style={styles.link}>
               <div style={{ ...styles.icon, backgroundColor: option.color }}>
                 {option.icon}
@@ -75,13 +65,7 @@ const styles = {
     borderRadius: "5px",
     marginBottom: "10px",
     cursor: "pointer",
-    transition: "background-color 0.3s ease",
     fontFamily: "'Arial', sans-serif",
-    borderLeft: "4px solid transparent", // Default for inactive items
-  },
-  activeOption: {
-    backgroundColor: "#f0f0f0", // Light gray for active item
-    borderLeft: "4px solid", // Left bar for active item
   },
   link: {
     display: "flex",
