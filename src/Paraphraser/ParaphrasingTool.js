@@ -33,10 +33,11 @@ const ParaphrasingTool = () => {
       color: "#555",
       borderRadius: "5px",
       transition: "all 0.3s ease",
+      outline: "none",
+      fontWeight: "bold",
     },
     activeMode: {
       backgroundColor: "#2ECC71",
-      color: "white",
       fontWeight: "bold",
     },
     content: {
@@ -58,7 +59,7 @@ const ParaphrasingTool = () => {
     },
     textarea: {
       width: "100%",
-      height: "200px",
+      height: "500px",
       fontSize: "16px",
       padding: "10px",
       border: "1px solid #ddd",
@@ -82,6 +83,7 @@ const ParaphrasingTool = () => {
       cursor: "pointer",
       boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
       transition: "background-color 0.3s",
+      outline: "none",
     },
     buttonHover: {
       backgroundColor: "#45a049",
@@ -100,17 +102,38 @@ const ParaphrasingTool = () => {
       color: "green",
       backgroundColor: "white",
       transition: "background-color 0.3s",
+      outline: "none",
     },
+  };
+
+  const modes = ["Standard", "Fluency", "Natural", "Formal"];
+  const [activeMode, setActiveMode] = useState("Standard");
+
+  const handleKeyPress = (e, mode) => {
+    if (e.key === "Enter" || e.key === " ") {
+      setActiveMode(mode);
+    }
   };
 
   return (
     <div style={styles.container}>
       <header style={styles.toolbar}>
         <div style={styles.modes}>
-          <span style={{ ...styles.mode, ...styles.activeMode }}>Standard</span>
-          <span style={styles.mode}>Fluency</span>
-          <span style={styles.mode}>Natural</span>
-          <span style={styles.mode}>Formal</span>
+          {modes.map((mode) => (
+            <span
+              key={mode}
+              style={{
+                ...styles.mode,
+                ...(activeMode === mode ? styles.activeMode : {}),
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label={`Select ${mode} mode`}
+              onClick={() => setActiveMode(mode)}
+            >
+              {mode}
+            </span>
+          ))}
         </div>
       </header>
 
@@ -121,10 +144,23 @@ const ParaphrasingTool = () => {
             placeholder="Enter your text here..."
             value={text}
             onChange={(e) => setText(e.target.value)}
+            aria-label="Input text area"
           />
           <div style={styles.actionButtons}>
-            <button style={styles.button}>📄 Upload Doc</button>
-            <button style={styles.button}>📋 Paste Text</button>
+            <button
+              style={styles.button}
+              tabIndex={0}
+              aria-label="Upload document button"
+            >
+              📄 Upload Doc
+            </button>
+            <button
+              style={styles.button}
+              tabIndex={0}
+              aria-label="Paste text button"
+            >
+              📋 Paste Text
+            </button>
           </div>
         </div>
         <div style={styles.rightPanel}>
@@ -132,8 +168,15 @@ const ParaphrasingTool = () => {
             style={styles.textarea}
             placeholder="Output will appear here..."
             readOnly
+            aria-label="Output text area"
           />
-          <button style={styles.paraphraseButton}>Paraphrase</button>
+          <button
+            style={styles.paraphraseButton}
+            tabIndex={0}
+            aria-label="Paraphrase button"
+          >
+            Paraphrase
+          </button>
         </div>
       </main>
     </div>
