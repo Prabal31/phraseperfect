@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { FaFileAlt, FaCheckCircle, FaRobot, FaQuoteRight, FaLanguage, FaPenNib } from "react-icons/fa";
