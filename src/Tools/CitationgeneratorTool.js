@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import { AiOutlineCloudUpload } from "react-icons/ai";
+import { BsKeyboard } from "react-icons/bs";
 
 const CitationGenerator = () => {
   const [citationStyle, setCitationStyle] = useState("APA 7th edition");
@@ -37,6 +39,7 @@ const CitationGenerator = () => {
     toolbar: {
       display: "flex",
       alignItems: "center",
+      justifyContent: "center",
       marginBottom: "20px",
     },
     dropdown: {
@@ -45,18 +48,20 @@ const CitationGenerator = () => {
       border: "1px solid #ddd",
       borderRadius: "5px",
       cursor: "pointer",
-      marginRight: "10px",
+      backgroundColor: "#eef0f4",
+      fontWeight: "bold",
     },
-    searchBoxContainer: {
+    searchContainer: {
       display: "flex",
       alignItems: "center",
       width: "100%",
       maxWidth: "600px",
+      marginTop: "20px",
       position: "relative",
     },
     searchBox: {
       width: "100%",
-      padding: "12px 40px 12px 15px",
+      padding: "15px 20px",
       fontSize: "1rem",
       border: "1px solid #ddd",
       borderRadius: "50px",
@@ -64,7 +69,7 @@ const CitationGenerator = () => {
     },
     searchIcon: {
       position: "absolute",
-      right: "80px",
+      left: "15px",
       fontSize: "1.2rem",
       color: "#95a5a6",
     },
@@ -82,12 +87,12 @@ const CitationGenerator = () => {
       display: "flex",
       gap: "20px",
       marginTop: "20px",
-    },
-    actionButton: {
       fontSize: "1rem",
       color: "#2ECC71",
-      textDecoration: "none",
-      cursor: "pointer",
+    },
+    actionIcon: {
+      marginRight: "5px",
+      fontSize: "1.2rem",
     },
   };
 
@@ -109,23 +114,29 @@ const CitationGenerator = () => {
           <option>Chicago 17th edition</option>
           <option>Harvard Referencing</option>
         </select>
-        <div style={styles.searchBoxContainer}>
-          <input
-            type="text"
-            placeholder="Search by title, URL, DOI, ISBN, or keywords"
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-            style={styles.searchBox}
-          />
-          <FaSearch style={styles.searchIcon} />
-        </div>
+      </div>
+      <div style={styles.searchContainer}>
+        <FaSearch style={styles.searchIcon} />
+        <input
+          type="text"
+          placeholder="Cite webpages, books, articles, and more"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          style={styles.searchBox}
+        />
         <button style={styles.citeButton} onClick={handleCite}>
           Cite
         </button>
       </div>
       <div style={styles.actions}>
-        <span style={styles.actionButton}>Upload PDF</span>
-        <span style={styles.actionButton}>Cite manually</span>
+        <span>
+          <AiOutlineCloudUpload style={styles.actionIcon} />
+          Upload PDF
+        </span>
+        <span>
+          <BsKeyboard style={styles.actionIcon} />
+          Cite manually
+        </span>
       </div>
     </div>
   );
