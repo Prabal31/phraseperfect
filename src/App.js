@@ -14,11 +14,11 @@ import CitationgeneratorTool from "./Tools/CitationgeneratorTool";
 const App = () => {
   return (
     <Router>
-      <div className="flex flex-col h-screen font-sans">
+      <div style={styles.page}>
         <Header />
-        <div className="flex flex-1">
+        <div style={styles.container}>
           <Sidebar />
-          <main className="flex-grow p-5 text-center">
+          <main style={styles.content}>
             <Routes>
               {/* Define the routes for different pages */}
               <Route path="/" element={<HomePage />} />
@@ -36,6 +36,19 @@ const App = () => {
       </div>
     </Router>
   );
+};
+
+const styles = {
+  container: {
+    display: "flex",
+    height: "100vh",
+    fontFamily: "'Arial', sans-serif",
+  },
+  content: {
+    flexGrow: 1,
+    padding: "20px",
+    textAlign: "center",
+  },
 };
 
 export default App;
