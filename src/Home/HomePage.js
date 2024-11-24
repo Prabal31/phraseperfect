@@ -15,11 +15,11 @@ const HomePage = () => {
   ];
 
   return (
-    <div className="font-sans text-gray-800 leading-relaxed w-full">
+    <div style={styles.container}>
       {/* Hero Section */}
-      <section className="flex justify-between items-center py-12 px-5 bg-gray-100">
+      <section style={styles.hero}>
         <div>
-          <h1 className="text-4xl mb-5">
+          <h1 style={styles.heroTitle}>
             Your ideas, <span style={styles.heroHighlight}>better writing</span>
           </h1>
           <p style={styles.heroSubtitle}>
@@ -58,7 +58,24 @@ const HomePage = () => {
 };
 
 const styles = {
- 
+  container: {
+    fontFamily: "'Arial', sans-serif",
+    color: "#333",
+    lineHeight: "1.6",
+    width: "100%",
+
+  },
+  hero: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "50px 20px",
+    backgroundColor: "#f9f9f9",
+  },
+  heroTitle: {
+    fontSize: "2.5rem",
+    marginBottom: "20px",
+  },
   heroHighlight: {
     color: "#2ECC71",
   },
@@ -103,7 +120,6 @@ const styles = {
   tools: {
     textAlign: "center",
   },
-  
   toolsTitle: {
     fontSize: "2rem",
     marginBottom: "20px",
