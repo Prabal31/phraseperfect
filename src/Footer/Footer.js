@@ -10,13 +10,15 @@ const Footer = () => {
 
 const styles = {
   footer: {
+    position: "relative", // Ensure it's within the normal document flow
+    bottom: 0,
+    left: 0,
+    width: "100%", // Spans the full width of the viewport
     backgroundColor: "#6F469C",
     color: "white",
-    padding: "10px 20px",
     textAlign: "center",
-    marginTop: "auto",
-    top: 0, // Sticks it to the top
-    left: 0,
+    padding: "10px 0",
+    boxSizing: "border-box", // Includes padding in dimensions
   },
   text: {
     margin: 0,
