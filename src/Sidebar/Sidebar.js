@@ -21,7 +21,6 @@ const Sidebar = () => {
     { icon: <FaQuoteRight />, label: "Summarizer", color: "#8E44AD", path: "/summarizer" },
     { icon: <FaLanguage />, label: "Translator", color: "#34495E", path: "/translator" },
     { icon: <FaPenNib />, label: "Citation Generator", color: "#3498DB", path: "/citation-generator" },
-    { icon: <FaStream />, label: "Flow", color: "#5DADE2", path: "/flow" },
   ];
 
   return (

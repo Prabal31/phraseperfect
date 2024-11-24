@@ -12,7 +12,6 @@ const HomePage = () => {
     { icon: <FaQuoteRight />, title: "Summarizer", description: "Summarize text", color: "#8E44AD" },
     { icon: <FaLanguage />, title: "Translator", description: "Unlock languages", color: "#34495E" },
     { icon: <FaPenNib />, title: "Citation Generator", description: "Cite sources", color: "#3498DB" },
-    { icon: <FaStream />, title: "Flow", description: "Write with AI", color: "#5DADE2" },
   ];
 
   return (
@@ -40,7 +39,7 @@ const HomePage = () => {
       {/* Tools Section */}
       <section style={styles.tools}>
         <h2 style={styles.toolsTitle}>
-          Seven tools. <span style={styles.toolsHighlight}>One platform.</span>
+          Six tools. <span style={styles.toolsHighlight}>One platform.</span>
         </h2>
         <div style={styles.toolGrid}>
           {tools.map((tool, index) => (
@@ -120,11 +119,11 @@ const styles = {
   },
   tools: {
     textAlign: "center",
-    padding: "40px 20px",
   },
   toolsTitle: {
     fontSize: "2rem",
     marginBottom: "20px",
+    paddingBottom: "10px",
   },
   toolsHighlight: {
     color: "#2ECC71",
