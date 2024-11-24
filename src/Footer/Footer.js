@@ -10,7 +10,7 @@ const Footer = () => {
 
 const styles = {
   footer: {
-        position: "relative", // Ensure it's within the normal document flow
+    position: "relative", // Ensure it's within the normal document flow
     bottom: 0,
     left: 0,
     width: "100%", // Spans the full width of the viewport
