@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // Import useLocation
 import {
   FaFileAlt,
   FaCheckCircle,
@@ -12,6 +12,8 @@ import {
 } from "react-icons/fa"; // Icons for sidebar options
 
 const Sidebar = () => {
+  const location = useLocation(); // Get the current path
+
   const options = [
     { icon: <FaFileAlt />, label: "Paraphraser", color: "#2ECC71", path: "/paraphrase" },
     { icon: <FaCheckCircle />, label: "Grammar Checker", color: "#FF6F61", path: "/grammar-checker" },
@@ -26,16 +28,33 @@ const Sidebar = () => {
   return (
     <div style={styles.sidebar}>
       <ul style={styles.options}>
-        {options.map((option, index) => (
-          <li key={index} style={styles.option}>
-            <Link to={option.path} style={styles.link}>
-              <div style={{ ...styles.icon, backgroundColor: option.color }}>
-                {option.icon}
-              </div>
-              <span style={styles.label}>{option.label}</span>
-            </Link>
-          </li>
-        ))}
+        {options.map((option, index) => {
+          const isActive = location.pathname === option.path; // Check if the current path matches the item's path
+          return (
+            <li
+              key={index}
+              style={{
+                ...styles.option,
+                ...(isActive ? styles.activeOption : {}),
+              }}
+            >
+              <Link to={option.path} style={styles.link}>
+                <div style={{ ...styles.icon, backgroundColor: option.color }}>
+                  {option.icon}
+                </div>
+                <span style={styles.label}>{option.label}</span>
+              </Link>
+              {isActive && (
+                <div
+                  style={{
+                    ...styles.highlight,
+                    backgroundColor: option.color, // Match the highlight color to the tile's color
+                  }}
+                ></div>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
@@ -51,6 +70,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
+    left: 0,
   },
   options: {
     listStyleType: "none",
@@ -61,11 +81,16 @@ const styles = {
   option: {
     display: "flex",
     alignItems: "center",
+    position: "relative", // Necessary for the highlight bar
     padding: "10px 15px",
     borderRadius: "5px",
     marginBottom: "10px",
     cursor: "pointer",
     fontFamily: "'Arial', sans-serif",
+    transition: "background-color 0.3s ease",
+  },
+  activeOption: {
+    backgroundColor: "#f5f5f5", // Subtle background for the active option
   },
   link: {
     display: "flex",
@@ -88,6 +113,14 @@ const styles = {
     fontSize: "1rem",
     color: "#333",
     fontWeight: "500",
+  },
+  highlight: {
+    position: "absolute",
+    left: 0,
+    top: 0,
+    bottom: 0,
+    width: "5px", // Width of the highlight bar
+    borderRadius: "5px", // Rounded edges
   },
 };
 

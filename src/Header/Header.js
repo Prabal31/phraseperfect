@@ -1,10 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { MdOutlineAccountCircle } from "react-icons/md";
 
 const Header = () => {
   return (
     <header style={styles.header}>
-      <h1 style={styles.logo}>PhrasePerfect</h1>
+      {/* Link to the homepage */}
+      <Link to="/" style={styles.link}>
+        <h1 style={styles.logo}>PhrasePerfect</h1>
+      </Link>
       <span style={styles.iconContainer}>
         <MdOutlineAccountCircle style={styles.icon} />
       </span>
@@ -32,6 +36,10 @@ const styles = {
     fontSize: "1.9rem",
     fontWeight: "bold",
     margin: 0,
+  },
+  link: {
+    textDecoration: "none", // Removes underline from the link
+    color: "white", // Ensures the text color matches the design
   },
   iconContainer: {
     marginRight: "40px", // Ensures proper spacing on the right side
