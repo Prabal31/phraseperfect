@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ParaphrasingTool = () => {
+  const [activeMode, setActiveMode] = useState("Standard"); // State to track the active mode
+
   const styles = {
     container: {
       fontFamily: "Arial, sans-serif",
@@ -9,7 +11,7 @@ const ParaphrasingTool = () => {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      padding: "20px",
+      paddingTop: "40px",
     },
     toolbar: {
       backgroundColor: "#fff",
@@ -21,28 +23,26 @@ const ParaphrasingTool = () => {
       flexDirection: "column",
       gap: "10px",
     },
-    languages: {
-      display: "flex",
-      gap: "10px",
-      fontSize: "14px",
-      color: "#555",
-    },
-    dropdown: {
-      fontWeight: "bold",
-      cursor: "pointer",
-    },
     modes: {
       display: "flex",
-      gap: "15px",
-      marginTop: "10px",
-      fontSize: "14px",
-      color: "#555",
-      alignItems: "center",
+      gap: "15px", // Spacing between modes
+      padding: "10px 0", // Padding around the modes
+      justifyContent: "center", // Center align the modes
+      fontFamily: "'Arial', sans-serif",
+    },
+    mode: {
+      padding: "8px 12px", // Padding inside each mode
+      cursor: "pointer", // Pointer cursor to indicate clickable
+      fontSize: "1rem",
+      color: "#555", // Default text color
+      borderRadius: "5px", // Rounded corners
+      transition: "all 0.3s ease", // Smooth transition effect
+      fontWeight: "bold", // Bold font for active mode
+
     },
     activeMode: {
-      fontWeight: "bold",
-      color: "green",
-      borderBottom: "2px solid green",
+      backgroundColor: "#2ECC71", // Highlighted background for active mode
+      fontWeight: "bold", // Bold font for active mode
     },
     synonymsSlider: {
       marginLeft: "auto",
@@ -82,9 +82,6 @@ const ParaphrasingTool = () => {
       backgroundColor: "white",
       transition: "background-color 0.3s",
     },
-    buttonHover: {
-      backgroundColor: "#f0f0f0",
-    },
     rightPanel: {
       flex: 1,
       display: "flex",
@@ -105,41 +102,38 @@ const ParaphrasingTool = () => {
     },
   };
 
+  const modes = ["Standard", "Fluency", "Natural", "Formal"]; // List of modes
+
   return (
     <div style={styles.container}>
       <header style={styles.toolbar}>
-        <div style={styles.languages}>
-          <span>English (US)</span>
-          <span>French</span>
-          <span>Spanish</span>
-          <span>German</span>
-          <span style={styles.dropdown}>All ▼</span>
-        </div>
         <div style={styles.modes}>
-          <span style={styles.activeMode}>Standard</span>
-          <span>Fluency</span>
-          <span>Natural</span>
-          <span>Formal</span>
-          <span>Academic</span>
-          <span>Simple</span>
-          <span>Creative</span>
-          <span>Expand</span>
-          <span>Shorten</span>
-          <span>Custom</span>
-          <div style={styles.synonymsSlider}>
-            Synonyms:
-            <input type="range" min="0" max="10" />
-          </div>
+          {modes.map((mode) => (
+            <span
+              key={mode}
+              style={{
+                ...styles.mode,
+                ...(activeMode === mode ? styles.activeMode : {}),
+              }}
+              onClick={() => setActiveMode(mode)} // Change active mode on click
+            >
+              {mode}
+            </span>
+          ))}
+        </div>
+
+        <div style={styles.synonymsSlider}>
+          Synonyms:
+          <input type="range" min="0" max="10" />
         </div>
       </header>
 
       <main style={styles.content}>
         <div style={styles.leftPanel}>
-          <p>To rewrite text, enter or paste it here and press "Paraphrase."</p>
-          <div style={styles.actionButtons}>
-            <button style={styles.button}>👋 Try Sample Text</button>
-            <button style={styles.button}>📋 Paste Text</button>
-          </div>
+          <p>
+            To rewrite text, enter or paste it here and press "Paraphrase."
+          </p>
+          <div style={styles.actionButtons}></div>
           <button style={styles.button}>📄 Upload Doc</button>
         </div>
         <div style={styles.rightPanel}>

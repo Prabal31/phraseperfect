@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar/Sidebar";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import HomePage from "./Home/HomePage";
-import ParaphrasingTool from "./Tools/ParaphrasingTool"; // Add your paraphraser tool page/component
+import ParaphrasingTool from "./Paraphraser/ParaphrasingTool"; // Add your paraphraser tool page/component
 
 const App = () => {
   return (
