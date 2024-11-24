@@ -1,8 +1,15 @@
+
+To make the icons clickable and navigable to their respective components, you'll need to use the Link component from react-router-dom to wrap each icon or the entire tool card in the HomePage component. This will make each tool card act as a clickable element that navigates to a designated route when clicked.
+
+Here's how you can update your HomePage component to include clickable icons using the Link component:
+
+Updated HomePage Component with Clickable Icons
+javascript
+Copy code
 import React from "react";
-import { FaFileAlt, FaCheckCircle, FaRobot, FaSearch, FaQuoteRight, FaLanguage, FaPenNib, FaStream } from "react-icons/fa";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { FaFileAlt, FaCheckCircle, FaRobot, FaQuoteRight, FaLanguage, FaPenNib } from "react-icons/fa";
 import CompanyLogo from "../Assets/Company_logo.png";
-
-
 
 const HomePage = () => {
   const tools = [
@@ -33,7 +40,6 @@ const HomePage = () => {
         src={CompanyLogo} 
         alt="Company Logo" 
         style={{ width: "390px", height: "auto", borderRadius: "50%"}} />
-
       </section>
 
       {/* Tools Section */}
@@ -43,13 +49,15 @@ const HomePage = () => {
         </h2>
         <div style={styles.toolGrid}>
           {tools.map((tool, index) => (
-            <div key={index} style={styles.toolCard}>
-              <div style={{ ...styles.iconWrapper, backgroundColor: tool.color }}>
-                {tool.icon}
+            <Link to={tool.path} key={index} style={{ textDecoration: 'none' }}> {/* Link wrapper with no text decoration */}
+              <div key={index} style={styles.toolCard} tabIndex={0}> {/* tabIndex added for keyboard accessibility */}
+                <div style={{ ...styles.iconWrapper, backgroundColor: tool.color }}>
+                  {tool.icon}
+                </div>
+                <h3 style={styles.toolTitle}>{tool.title}</h3>
+                <p style={styles.toolDescription}>{tool.description}</p>
               </div>
-              <h3 style={styles.toolTitle}>{tool.title}</h3>
-              <p style={styles.toolDescription}>{tool.description}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
