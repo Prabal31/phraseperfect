@@ -1,19 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { MdOutlineAccountCircle } from "react-icons/md";
+import CompanyLogo from "../Assets/Company_logo.png";
 
 const Header = () => {
-  return (
-    <header style={styles.header}>
-      {/* Link to the homepage */}
-      <Link to="/" style={styles.link}>
-        <h1 style={styles.logo}>PhrasePerfect</h1>
-      </Link>
-      <span style={styles.iconContainer}>
-        <MdOutlineAccountCircle style={styles.icon} />
-      </span>
-    </header>
-  );
+    return (
+        <header style={styles.header}>
+          {/* Link to the homepage */}
+          <Link to="/" style={styles.link}>
+            <div style={styles.logoContainer}>
+              <img
+                src={CompanyLogo}
+                alt="Company Logo"
+                style={styles.logoImage}
+              />
+              <h1 style={styles.logoText}>PhrasePerfect</h1>
+            </div>
+          </Link>
+          <span style={styles.iconContainer}>
+            <MdOutlineAccountCircle style={styles.icon} />
+          </span>
+        </header>
+    );
 };
 
 const styles = {
@@ -32,17 +40,28 @@ const styles = {
     zIndex: 1000, // Ensures the header stays on top
     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Adds a shadow for better visibility
   },
-  logo: {
-    fontSize: "1.9rem",
-    fontWeight: "bold",
-    margin: 0,
-  },
   link: {
     textDecoration: "none", // Removes underline from the link
     color: "white", // Ensures the text color matches the design
   },
+  logoContainer: {
+    display: "flex", // Ensures logo and text are in a row
+    alignItems: "center",
+    gap: "10px", // Adds space between logo and text
+  },
+  logoImage: {
+    width: "40px", // Adjusted size for the image
+    height: "40px",
+    borderRadius: "50%", // Makes the image circular
+    objectFit: "cover", // Ensures the image fits within the circle
+  },
+  logoText: {
+    fontSize: "1.9rem",
+    fontWeight: "bold",
+    margin: 0,
+  },
   iconContainer: {
-    marginRight: "40px", // Ensures proper spacing on the right side
+    marginRight: "30px", // Ensures proper spacing on the right side
   },
   icon: {
     fontSize: "2.5rem", // Adjusted size for better visibility

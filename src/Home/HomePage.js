@@ -33,7 +33,7 @@ const HomePage = () => {
         <img 
         src={CompanyLogo} 
         alt="Company Logo" 
-        style={{ width: "400px", height: "auto" }} />
+        style={{ width: "390px", height: "auto", borderRadius: "50%"}} />
 
       </section>
 
