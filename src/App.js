@@ -6,6 +6,8 @@ import Footer from "./Footer/Footer";
 import HomePage from "./Home/HomePage";
 import ParaphrasingTool from "./Tools/ParaphrasingTool"; 
 import GrammarcheckerTool from "./Tools/GrammarcheckerTool"; 
+import AIdectectorTool from "./Tools/AIdetectorTool"; 
+
 
 
 const App = () => {
@@ -21,7 +23,8 @@ const App = () => {
               <Route path="/" element={<HomePage />} />
               <Route path="/paraphrase" element={<ParaphrasingTool />} />
               <Route path="/grammar-checker" element={<GrammarcheckerTool />} />
-              {/* Add more routes here for other tools */}
+              <Route path="/ai-detector" element={<AIdectectorTool />} />
+
             </Routes>
           </main>
         </div>
