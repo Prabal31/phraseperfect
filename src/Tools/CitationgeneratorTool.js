@@ -1,0 +1,134 @@
+import React, { useState } from "react";
+import { FaSearch } from "react-icons/fa";
+
+const CitationGenerator = () => {
+  const [citationStyle, setCitationStyle] = useState("APA 7th edition");
+  const [searchText, setSearchText] = useState("");
+
+  const handleCite = () => {
+    if (!searchText.trim()) {
+      alert("Please enter a title, URL, DOI, ISBN, or keyword to cite.");
+      return;
+    }
+    alert(`Citing "${searchText}" using ${citationStyle}`);
+  };
+
+  const styles = {
+    container: {
+      fontFamily: "Arial, sans-serif",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      padding: "50px 20px",
+      backgroundColor: "#f9f9f9",
+      minHeight: "100vh",
+    },
+    title: {
+      fontSize: "2.5rem",
+      fontWeight: "bold",
+      color: "#2c3e50",
+      marginBottom: "10px",
+    },
+    subtitle: {
+      fontSize: "1rem",
+      color: "#7f8c8d",
+      marginBottom: "40px",
+    },
+    toolbar: {
+      display: "flex",
+      alignItems: "center",
+      marginBottom: "20px",
+    },
+    dropdown: {
+      fontSize: "1rem",
+      padding: "8px 12px",
+      border: "1px solid #ddd",
+      borderRadius: "5px",
+      cursor: "pointer",
+      marginRight: "10px",
+    },
+    searchBoxContainer: {
+      display: "flex",
+      alignItems: "center",
+      width: "100%",
+      maxWidth: "600px",
+      position: "relative",
+    },
+    searchBox: {
+      width: "100%",
+      padding: "12px 40px 12px 15px",
+      fontSize: "1rem",
+      border: "1px solid #ddd",
+      borderRadius: "50px",
+      boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
+    },
+    searchIcon: {
+      position: "absolute",
+      right: "80px",
+      fontSize: "1.2rem",
+      color: "#95a5a6",
+    },
+    citeButton: {
+      padding: "10px 20px",
+      backgroundColor: "#2ECC71",
+      color: "#fff",
+      border: "none",
+      borderRadius: "50px",
+      cursor: "pointer",
+      fontSize: "1rem",
+      marginLeft: "10px",
+    },
+    actions: {
+      display: "flex",
+      gap: "20px",
+      marginTop: "20px",
+    },
+    actionButton: {
+      fontSize: "1rem",
+      color: "#2ECC71",
+      textDecoration: "none",
+      cursor: "pointer",
+    },
+  };
+
+  return (
+    <div style={styles.container}>
+      <h1 style={styles.title}>Free Citation Generator</h1>
+      <p style={styles.subtitle}>
+        Instantly create, edit, and save citations in over 1,000 different
+        styles, for free and without limits.
+      </p>
+      <div style={styles.toolbar}>
+        <select
+          value={citationStyle}
+          onChange={(e) => setCitationStyle(e.target.value)}
+          style={styles.dropdown}
+        >
+          <option>APA 7th edition</option>
+          <option>MLA 9th edition</option>
+          <option>Chicago 17th edition</option>
+          <option>Harvard Referencing</option>
+        </select>
+        <div style={styles.searchBoxContainer}>
+          <input
+            type="text"
+            placeholder="Search by title, URL, DOI, ISBN, or keywords"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            style={styles.searchBox}
+          />
+          <FaSearch style={styles.searchIcon} />
+        </div>
+        <button style={styles.citeButton} onClick={handleCite}>
+          Cite
+        </button>
+      </div>
+      <div style={styles.actions}>
+        <span style={styles.actionButton}>Upload PDF</span>
+        <span style={styles.actionButton}>Cite manually</span>
+      </div>
+    </div>
+  );
+};
+
+export default CitationGenerator;

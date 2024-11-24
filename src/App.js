@@ -9,9 +9,7 @@ import GrammarcheckerTool from "./Tools/GrammarcheckerTool";
 import AIdectectorTool from "./Tools/AIdetectorTool"; 
 import SummarizingTool from "./Tools/SummarizerTool"; 
 import TranslatorTool from "./Tools/TranslatorTool"; 
-
-
-
+import CitationgeneratorTool from "./Tools/CitationgeneratorTool"; 
 
 const App = () => {
   return (
@@ -29,7 +27,7 @@ const App = () => {
               <Route path="/ai-detector" element={<AIdectectorTool />} />
               <Route path="/summarizer" element={<SummarizingTool />} />
               <Route path="/translator" element={<TranslatorTool />} />
-
+              <Route path="/citation-generator" element={<CitationgeneratorTool />} />
 
             </Routes>
           </main>
