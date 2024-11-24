@@ -1,21 +1,7 @@
 import React, { useState } from "react";
 
-const SummarizingTool = () => {
-  const [summaryLength, setSummaryLength] = useState("Short");
+const ParaphrasingTool = () => {
   const [text, setText] = useState("");
-  const [summary, setSummary] = useState("");
-
-  const handleSummarize = () => {
-    if (text.trim()) {
-      const simulatedSummary =
-        summaryLength === "Short"
-          ? `${text.slice(0, 50)}...`
-          : `${text.slice(0, 100)}...`;
-      setSummary(simulatedSummary);
-    } else {
-      setSummary("Please provide some text to summarize.");
-    }
-  };
 
   const styles = {
     container: {
@@ -25,21 +11,20 @@ const SummarizingTool = () => {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      paddingTop: "20px",
+      paddingTop: "40px",
     },
     toolbar: {
-      display: "flex",
-      alignItems: "center",
       backgroundColor: "#fff",
-      borderBottom: "1px solid #ddd",
       width: "100%",
       padding: "10px 20px",
+      borderBottom: "1px solid #ddd",
       boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
-      justifyContent: "space-between",
     },
     modes: {
       display: "flex",
       gap: "15px",
+      justifyContent: "center",
+      fontFamily: "'Arial', sans-serif",
     },
     mode: {
       padding: "8px 12px",
@@ -48,147 +33,155 @@ const SummarizingTool = () => {
       color: "#555",
       borderRadius: "5px",
       transition: "all 0.3s ease",
+      outline: "none",
+      fontWeight: "bold",
     },
     activeMode: {
       backgroundColor: "#2ECC71",
-      color: "white",
       fontWeight: "bold",
-    },
-    lengthControl: {
-      display: "flex",
-      alignItems: "center",
-      gap: "10px",
-    },
-    slider: {
-      cursor: "pointer",
-      accentColor: "#2ECC71",
     },
     content: {
       display: "flex",
       justifyContent: "space-between",
-      alignItems: "flex-start",
       width: "100%",
       maxWidth: "1200px",
+      marginTop: "20px",
+      backgroundColor: "#fff",
       padding: "20px",
-      gap: "20px",
+      borderRadius: "8px",
+      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
     },
     leftPanel: {
-      flex: 1,
+      flex: 3,
       display: "flex",
       flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      border: "1px solid #ddd",
-      borderRadius: "8px",
-      padding: "20px",
-      backgroundColor: "#fff",
-      minHeight: "300px",
+      gap: "20px",
     },
-    pasteButton: {
-      marginTop: "20px",
-      padding: "10px 20px",
+    textarea: {
+      width: "100%",
+      height: "400px",
       fontSize: "16px",
-      fontWeight: "bold",
-      color: "#2ECC71",
-      border: "2px solid #2ECC71",
-      backgroundColor: "white",
+      padding: "10px",
+      border: "1px solid #ddd",
       borderRadius: "5px",
-      cursor: "pointer",
-      transition: "background-color 0.3s",
+      resize: "none",
     },
     rightPanel: {
-      flex: 1,
+      flex: 3,
       display: "flex",
       flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      border: "1px solid #ddd",
-      borderRadius: "8px",
-      padding: "20px",
-      backgroundColor: "#fff",
-      minHeight: "300px",
+      gap: "20px",
     },
-    summarizeButton: {
-      marginTop: "20px",
-      padding: "10px 20px",
-      fontSize: "16px",
+    paraphraseButton: {
+      padding: "15px 30px",
+      fontSize: "18px",
       fontWeight: "bold",
+      backgroundColor: "green",
       color: "white",
-      backgroundColor: "#2ECC71",
       border: "none",
       borderRadius: "5px",
       cursor: "pointer",
+      boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
       transition: "background-color 0.3s",
+      outline: "none",
     },
-    stats: {
-      marginTop: "10px",
+    buttonHover: {
+      backgroundColor: "#45a049",
+    },
+    actionButtons: {
+      display: "flex",
+      gap: "10px",
+    },
+    button: {
+      padding: "10px 20px",
       fontSize: "14px",
-      color: "#555",
+      fontWeight: "bold",
+      border: "2px solid green",
+      borderRadius: "5px",
+      cursor: "pointer",
+      color: "green",
+      backgroundColor: "white",
+      transition: "background-color 0.3s",
+      outline: "none",
     },
+  };
+
+  const modes = ["Standard", "Fluency", "Natural", "Formal"];
+  const [activeMode, setActiveMode] = useState("Standard");
+
+  const handleKeyPress = (e, mode) => {
+    if (e.key === "Enter" || e.key === " ") {
+      setActiveMode(mode);
+    }
   };
 
   return (
     <div style={styles.container}>
       <header style={styles.toolbar}>
         <div style={styles.modes}>
-          {["Paragraph", "Bullet Points", "Custom"].map((mode) => (
+          {modes.map((mode) => (
             <span
               key={mode}
               style={{
                 ...styles.mode,
-                ...(summaryLength === mode ? styles.activeMode : {}),
+                ...(activeMode === mode ? styles.activeMode : {}),
               }}
-              onClick={() => setSummaryLength(mode)}
+              tabIndex={0}
+              role="button"
+              aria-label={`Select ${mode} mode`}
+              onClick={() => setActiveMode(mode)}
+              onKeyPress={(e) => handleKeyPress(e, mode)}
             >
               {mode}
             </span>
           ))}
-        </div>
-        <div style={styles.lengthControl}>
-          Summary Length:
-          <input
-            type="range"
-            min="1"
-            max="10"
-            style={styles.slider}
-            onChange={(e) =>
-              setSummaryLength(e.target.value > 5 ? "Long" : "Short")
-            }
-          />
-          <span>{summaryLength}</span>
         </div>
       </header>
 
       <main style={styles.content}>
         <div style={styles.leftPanel}>
           <textarea
-            style={{ width: "100%", height: "100px", borderRadius: "5px" }}
-            placeholder="Enter or paste your text here..."
+            style={styles.textarea}
+            placeholder="Enter your text here..."
             value={text}
             onChange={(e) => setText(e.target.value)}
+            aria-label="Input text area"
           />
-          <button style={styles.pasteButton}>Paste Text</button>
+          <div style={styles.actionButtons}>
+            <button
+              style={styles.button}
+              tabIndex={0}
+              aria-label="Upload document button"
+            >
+              📄 Upload Doc
+            </button>
+            <button
+              style={styles.button}
+              tabIndex={0}
+              aria-label="Paste text button"
+            >
+              📋 Paste Text
+            </button>
+          </div>
         </div>
-
         <div style={styles.rightPanel}>
           <textarea
-            style={{ width: "100%", height: "100px", borderRadius: "5px" }}
-            value={summary}
+            style={styles.textarea}
+            placeholder="Output will appear here..."
             readOnly
-            placeholder="Summary will appear here..."
+            aria-label="Output text area"
           />
-          <button style={styles.summarizeButton} onClick={handleSummarize}>
-            Summarize
+          <button
+            style={styles.paraphraseButton}
+            tabIndex={0}
+            aria-label="Paraphrase button"
+          >
+            Paraphrase
           </button>
-          <div style={styles.stats}>
-            {text.trim().length > 0
-              ? `${text.split(".").length} sentences • ${text.split(" ").length} words`
-              : "0 sentences • 0 words"}
-          </div>
         </div>
       </main>
     </div>
   );
 };
 
-export default SummarizingTool;
+export default ParaphrasingTool;

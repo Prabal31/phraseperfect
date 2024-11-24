@@ -8,6 +8,8 @@ import ParaphrasingTool from "./Tools/ParaphrasingTool";
 import GrammarcheckerTool from "./Tools/GrammarcheckerTool"; 
 import AIdectectorTool from "./Tools/AIdetectorTool"; 
 import SummarizingTool from "./Tools/SummarizerTool"; 
+import TranslatorTool from "./Tools/TranslatorTool"; 
+
 
 
 
@@ -26,6 +28,7 @@ const App = () => {
               <Route path="/grammar-checker" element={<GrammarcheckerTool />} />
               <Route path="/ai-detector" element={<AIdectectorTool />} />
               <Route path="/summarizer" element={<SummarizingTool />} />
+              <Route path="/translator" element={<TranslatorTool />} />
 
 
             </Routes>
