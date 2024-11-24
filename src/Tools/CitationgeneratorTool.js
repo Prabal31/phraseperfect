@@ -61,7 +61,7 @@ const CitationGenerator = () => {
     },
     searchBox: {
       width: "100%",
-      padding: "15px 20px",
+      padding: "15px 50px 15px 40px", // Adjust padding for icon space
       fontSize: "1rem",
       border: "1px solid #ddd",
       borderRadius: "50px",
