@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   FaFileAlt,
   FaCheckCircle,
@@ -12,14 +13,14 @@ import {
 
 const Sidebar = () => {
   const options = [
-    { icon: <FaFileAlt />, label: "Paraphraser", color: "#2ECC71" },
-    { icon: <FaCheckCircle />, label: "Grammar Checker", color: "#FF6F61" },
-    { icon: <FaRobot />, label: "AI Detector", color: "#F4D03F" },
-    { icon: <FaSearch />, label: "Plagiarism Checker", color: "#E67E22" },
-    { icon: <FaQuoteRight />, label: "Summarizer", color: "#8E44AD" },
-    { icon: <FaLanguage />, label: "Translator", color: "#34495E" },
-    { icon: <FaPenNib />, label: "Citation Generator", color: "#3498DB" },
-    { icon: <FaStream />, label: "Flow", description: "Write with AI", color: "#5DADE2" },
+    { icon: <FaFileAlt />, label: "Paraphraser", color: "#2ECC71", path: "/paraphrase" },
+    { icon: <FaCheckCircle />, label: "Grammar Checker", color: "#FF6F61", path: "/grammar-checker" },
+    { icon: <FaRobot />, label: "AI Detector", color: "#F4D03F", path: "/ai-detector" },
+    { icon: <FaSearch />, label: "Plagiarism Checker", color: "#E67E22", path: "/plagiarism-checker" },
+    { icon: <FaQuoteRight />, label: "Summarizer", color: "#8E44AD", path: "/summarizer" },
+    { icon: <FaLanguage />, label: "Translator", color: "#34495E", path: "/translator" },
+    { icon: <FaPenNib />, label: "Citation Generator", color: "#3498DB", path: "/citation-generator" },
+    { icon: <FaStream />, label: "Flow", color: "#5DADE2", path: "/flow" },
   ];
 
   return (
@@ -27,10 +28,12 @@ const Sidebar = () => {
       <ul style={styles.options}>
         {options.map((option, index) => (
           <li key={index} style={styles.option}>
-            <div style={{ ...styles.icon, backgroundColor: option.color }}>
-              {option.icon}
-            </div>
-            <span style={styles.label}>{option.label}</span>
+            <Link to={option.path} style={styles.link}>
+              <div style={{ ...styles.icon, backgroundColor: option.color }}>
+                {option.icon}
+              </div>
+              <span style={styles.label}>{option.label}</span>
+            </Link>
           </li>
         ))}
       </ul>
@@ -39,24 +42,16 @@ const Sidebar = () => {
 };
 
 const styles = {
-    sidebar: {
-        width: "220px",
-        backgroundColor: "white",
-        boxShadow: "0px 0 5px rgba(0, 0, 0, 0)", // No shadow
-        borderRight: "1px solid #ddd", // Subtle border
-        padding: "20px", 
-        paddingTop: "80px", 
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-      },
-      
-  logo: {
-    fontSize: "1.5rem",
-    color: "#6F469C",
-    marginBottom: "20px",
-    fontWeight: "bold",
-    alignSelf: "center",
+  sidebar: {
+    width: "220px",
+    backgroundColor: "white",
+    boxShadow: "0px 0 5px rgba(0, 0, 0, 0)", // No shadow
+    borderRight: "1px solid #ddd", // Subtle border
+    padding: "20px",
+    paddingTop: "80px", // Adjust top padding
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
   },
   options: {
     listStyleType: "none",
@@ -73,6 +68,12 @@ const styles = {
     cursor: "pointer",
     transition: "background-color 0.3s ease",
     fontFamily: "'Arial', sans-serif",
+  },
+  link: {
+    display: "flex",
+    alignItems: "center",
+    textDecoration: "none",
+    width: "100%",
   },
   icon: {
     display: "flex",

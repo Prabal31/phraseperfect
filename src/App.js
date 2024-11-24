@@ -1,24 +1,32 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./Sidebar/Sidebar";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import HomePage from "./Home/HomePage";
+import ParaphrasingTool from "./Tools/ParaphrasingTool"; // Add your paraphraser tool page/component
 
 const App = () => {
   return (
-    <div style={styles.page}>
-      <Header />
-      <div style={styles.container}>
-        <Sidebar />
-        <main style={styles.content}>
-          <HomePage />
-        </main>
+    <Router>
+      <div style={styles.page}>
+        <Header />
+        <div style={styles.container}>
+          <Sidebar />
+          <main style={styles.content}>
+            <Routes>
+              {/* Define the routes for different pages */}
+              <Route path="/" element={<HomePage />} />
+              <Route path="/paraphrase" element={<ParaphrasingTool />} />
+              {/* Add more routes here for other tools */}
+            </Routes>
+          </main>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </Router>
   );
 };
-
 
 const styles = {
   container: {
