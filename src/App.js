@@ -14,11 +14,11 @@ import CitationgeneratorTool from "./Tools/CitationgeneratorTool";
 const App = () => {
   return (
     <Router>
-      <div style={styles.page}>
+      <div className="flex flex-col min-h-screen font-sans">
         <Header />
-        <div style={styles.container}>
+        <div className="flex flex-grow">
           <Sidebar />
-          <main style={styles.content}>
+          <main className="flex-grow p-5 text-center">
             <Routes>
               {/* Define the routes for different pages */}
               <Route path="/" element={<HomePage />} />
@@ -28,7 +28,6 @@ const App = () => {
               <Route path="/summarizer" element={<SummarizingTool />} />
               <Route path="/translator" element={<TranslatorTool />} />
               <Route path="/citation-generator" element={<CitationgeneratorTool />} />
-
             </Routes>
           </main>
         </div>
@@ -36,19 +35,6 @@ const App = () => {
       </div>
     </Router>
   );
-};
-
-const styles = {
-  container: {
-    display: "flex",
-    height: "100vh",
-    fontFamily: "'Arial', sans-serif",
-  },
-  content: {
-    flexGrow: 1,
-    padding: "20px",
-    textAlign: "center",
-  },
 };
 
 export default App;
