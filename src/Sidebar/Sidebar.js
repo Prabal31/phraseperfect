@@ -120,6 +120,7 @@ const styles = {
     width: "5px", // Width of the highlight bar
     borderRadius: "5px", // Rounded edges
   },
+
 };
 
 export default Sidebar;
