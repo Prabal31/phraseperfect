@@ -5,7 +5,10 @@ import CompanyLogo from "../Assets/Company_logo.png";
 import Accountdropdown from "../Auth/Accountdropdown";
 
 const Header = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const toggleDropdown = () => {
+    setIsDropdownVisible((prevState) => !prevState); // Toggle dropdown visibility
+  };
     return (
 
         <header style={styles.header}>
@@ -21,14 +24,11 @@ const Header = () => {
             </div>
           </Link>
           {/* Account Icon and Dropdown */}
-            <div
-              style={styles.iconContainer}
-              onMouseEnter={() => setIsHovered(true)} // Show dropdown on hover
-              onMouseLeave={() => setIsHovered(false)} // Hide dropdown when hover ends
-            >
-              <MdOutlineAccountCircle style={styles.icon} />
-              {isHovered && <Accountdropdown />} {/* Show dropdown when hovered */}
-            </div>
+            {/* Account Icon and Dropdown */}
+          <div style={styles.iconContainer}>
+            <MdOutlineAccountCircle style={styles.icon} onClick={toggleDropdown} /> {/* Toggle dropdown on click */}
+            {isDropdownVisible && <Accountdropdown />} {/* Show dropdown if visible */}
+          </div>
         </header>
     );
 };
