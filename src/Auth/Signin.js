@@ -89,7 +89,7 @@ const styles = {
   },
   switchLink: {
     color: "#007bff",
-    textDecoration: "none",
+    textDecoration: "underline",
   },
 };
 

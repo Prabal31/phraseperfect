@@ -4,11 +4,9 @@ import {
   FaFileAlt,
   FaCheckCircle,
   FaRobot,
-  FaSearch,
   FaQuoteRight,
   FaLanguage,
   FaPenNib,
-  FaStream,
 } from "react-icons/fa"; // Icons for sidebar options
 
 const Sidebar = () => {

@@ -25,7 +25,7 @@ const LoginPage = () => {
               placeholder="Password"
               style={styles.input}
             />
-            <button type="button" style={styles.passwordToggle}>
+            <button type="button" style={styles.passwordToggle}  >
               👁️
             </button>
           </div>
@@ -48,6 +48,8 @@ const LoginPage = () => {
     </div>
   );
 };
+
+
 
 const styles = {
   loginContainer: {
