@@ -32,17 +32,17 @@ const AccountDropdown = () => {
 };
 
 const styles = {
-  dropdownMenu: {
-    position: "absolute",
-    top: "100%", // Positioned below the icon
-    right: 1,
-    width: "200px",
-    backgroundColor: "#fff",
-    borderRadius: "8px",
-    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-    zIndex: 10,
-    overflow: "hidden",
-    transition: "opacity 0.3s ease, transform 0.3s ease",
+    dropdownMenu: {
+        position: "absolute",
+        top: "65px", // Positioned below the icon
+        right: "70px", // Add padding from the right edge
+        width: "200px",
+        backgroundColor: "#fff",
+        borderRadius: "8px",
+        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+        zIndex: 10,
+        overflow: "hidden",
+        transition: "opacity 0.3s ease, transform 0.3s ease", // Smooth transition
   },
   menuItem: {
     display: "flex",
