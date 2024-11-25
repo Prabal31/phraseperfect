@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom";
 import { FaFileAlt, FaCheckCircle, FaRobot, FaQuoteRight, FaLanguage, FaPenNib } from "react-icons/fa";
 import CompanyLogo from "../Assets/Company_logo.png";
 
-const HomePage = () => {
+const HomePage = ({ darkMode }) => {
   const tools = [
     { icon: <FaFileAlt />, title: "Paraphraser", description: "Increase fluency", color: "#2ECC71", path: "/paraphrase" },
     { icon: <FaCheckCircle />, title: "Grammar Checker", description: "Fix mistakes", color: "#FF6F61", path: "/grammar-checker" },
@@ -14,24 +14,49 @@ const HomePage = () => {
   ];
 
   return (
-    <div style={styles.container}>
+    <div
+      style={{
+        ...styles.container,
+        backgroundColor: darkMode ? "#121212" : "#fff",
+        color: darkMode ? "#fff" : "#333",
+      }}
+    >
       {/* Hero Section */}
-      <section style={styles.hero}>
+      <section
+        style={{
+          ...styles.hero,
+          backgroundColor: darkMode ? "#1e1e1e" : "#f9f9f9",
+        }}
+      >
         <div>
           <h1 style={styles.heroTitle}>
-            Your ideas, <span style={styles.heroHighlight}>better writing</span>
+            Your ideas,{" "}
+            <span style={{ ...styles.heroHighlight, color: darkMode ? "#2ECC71" : "#2ECC71" }}>
+              better writing
+            </span>
           </h1>
           <p style={styles.heroSubtitle}>
             We use AI to strengthen writing and boost productivity—without sacrificing authenticity.
           </p>
-          <button style={styles.heroButton}>
+          <button
+            style={{
+              ...styles.heroButton,
+              backgroundColor: darkMode ? "#444" : "#2ECC71",
+              color: "#fff",
+            }}
+          >
             <span style={{ marginRight: "8px" }}>🌐</span>Add to Edge. It's Free
           </button>
         </div>
-        <img 
-        src={CompanyLogo} 
-        alt="Company Logo" 
-        style={{ width: "390px", height: "auto", borderRadius: "50%"}} />
+        <img
+          src={CompanyLogo}
+          alt="Company Logo"
+          style={{
+            width: "390px",
+            height: "auto",
+            borderRadius: "50%",
+          }}
+        />
       </section>
 
       {/* Tools Section */}
@@ -41,8 +66,17 @@ const HomePage = () => {
         </h2>
         <div style={styles.toolGrid}>
           {tools.map((tool, index) => (
-            <Link to={tool.path} key={index} style={{ textDecoration: 'none' }}> {/* Link wrapper with no text decoration */}
-              <div key={index} style={styles.toolCard} tabIndex={0}> {/* tabIndex added for keyboard accessibility */}
+            <Link to={tool.path} key={index} style={{ textDecoration: "none" }}>
+              <div
+                key={index}
+                style={{
+                  ...styles.toolCard,
+                  backgroundColor: darkMode ? "#1e1e1e" : "#fff",
+                  color: darkMode ? "#fff" : "#333",
+                  border: darkMode ? "1px solid #444" : "1px solid #ddd",
+                }}
+                tabIndex={0}
+              >
                 <div style={{ ...styles.iconWrapper, backgroundColor: tool.color }}>
                   {tool.icon}
                 </div>
@@ -60,17 +94,14 @@ const HomePage = () => {
 const styles = {
   container: {
     fontFamily: "'Arial', sans-serif",
-    color: "#333",
     lineHeight: "1.6",
     width: "100%",
-
   },
   hero: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     padding: "50px 20px",
-    backgroundColor: "#f9f9f9",
   },
   heroTitle: {
     fontSize: "2.5rem",
@@ -84,33 +115,6 @@ const styles = {
     marginBottom: "20px",
   },
   heroButton: {
-    backgroundColor: "#2ECC71",
-    color: "white",
-    padding: "10px 20px",
-    fontSize: "1rem",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-  },
-  heroImage: {
-    width: "400px",
-    borderRadius: "10px",
-  },
-  promotion: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "20px",
-    backgroundColor: "#f3f3f3",
-    margin: "20px 0",
-    borderRadius: "10px",
-  },
-  promoText: {
-    fontSize: "1.2rem",
-  },
-  saveButton: {
-    backgroundColor: "#6F469C",
-    color: "white",
     padding: "10px 20px",
     fontSize: "1rem",
     border: "none",
@@ -136,9 +140,7 @@ const styles = {
     marginTop: "20px",
   },
   toolCard: {
-    backgroundColor: "#fff",
     padding: "20px",
-    border: "1px solid #ddd",
     borderRadius: "10px",
     textAlign: "center",
     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
@@ -159,22 +161,6 @@ const styles = {
   },
   toolDescription: {
     fontSize: "0.9rem",
-    color: "#555",
-  },
-  footer: {
-    textAlign: "center",
-    padding: "20px",
-    backgroundColor: "#6F469C",
-    color: "white",
-  },
-  signUpButton: {
-    backgroundColor: "#2ECC71",
-    color: "white",
-    padding: "10px 20px",
-    fontSize: "1rem",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
   },
 };
 

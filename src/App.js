@@ -32,7 +32,7 @@ const App = () => {
           <Sidebar isDarkMode={darkMode} /> {/* Pass darkMode */}
           <main style={styles.content}>
             <Routes>
-              <Route path="/" element={<HomePage isDarkMode={darkMode}/>} />
+              <Route path="/" element={<HomePage darkMode={darkMode}/>} />
               <Route path="/paraphrase" element={<ParaphrasingTool isDarkMode={darkMode}/>} />
               <Route path="/grammar-checker" element={<GrammarcheckerTool isDarkMode={darkMode}/>} />
               <Route path="/ai-detector" element={<AIdectectorTool isDarkMode={darkMode}/>} />
