@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { MdOutlineAccountCircle } from "react-icons/md";
 import CompanyLogo from "../Assets/Company_logo.png";
-import Accountdropdown from "./auth/Accountdropdown";
+import Accountdropdown from "../Auth/Accountdropdown";
 
 const Header = () => {
   const [isHovered, setIsHovered] = useState(false);
