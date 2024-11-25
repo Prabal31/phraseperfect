@@ -10,7 +10,7 @@ import AIdectectorTool from "./Tools/AIdetectorTool";
 import SummarizingTool from "./Tools/SummarizerTool"; 
 import TranslatorTool from "./Tools/TranslatorTool"; 
 import CitationgeneratorTool from "./Tools/CitationgeneratorTool";
-import Account from "./Account/Account";
+import Account from "./Account/Login";
 
 
 
