@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   return (
@@ -34,9 +35,11 @@ const LoginPage = () => {
           </button>
         </form>
 
-        {/* Footer */}
-        <p style={styles.signupText}>
-          Don’t have an account? <a href="#" style={styles.signupLink}>Sign up</a>
+        <p style={styles.switchText}>
+          Don’t have an account?{" "}
+          <Link to="/signin" style={styles.switchLink}>
+            Sign up
+          </Link>
         </p>
         <p style={styles.termsText}>
           By continuing, you agree to our <a href="#" style={styles.termsLink}>Terms of Service</a> and have read our <a href="#" style={styles.termsLink}>Privacy Policy</a>.

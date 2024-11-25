@@ -10,7 +10,9 @@ import AIdectectorTool from "./Tools/AIdetectorTool";
 import SummarizingTool from "./Tools/SummarizerTool"; 
 import TranslatorTool from "./Tools/TranslatorTool"; 
 import CitationgeneratorTool from "./Tools/CitationgeneratorTool";
-import Login from "./Account/Login";
+import Login from "./Auth/Login";
+import SignIn from "./Auth/Signin";
+
 
 
 
@@ -32,6 +34,7 @@ const App = () => {
               <Route path="/translator" element={<TranslatorTool />} />
               <Route path="/citation-generator" element={<CitationgeneratorTool />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/signin" element={<SignIn />} />
 
             </Routes>
           </main>
