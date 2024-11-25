@@ -32,15 +32,15 @@ const App = () => {
           <Sidebar isDarkMode={darkMode} /> {/* Pass darkMode */}
           <main style={styles.content}>
             <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/paraphrase" element={<ParaphrasingTool />} />
-              <Route path="/grammar-checker" element={<GrammarcheckerTool />} />
-              <Route path="/ai-detector" element={<AIdectectorTool />} />
-              <Route path="/summarizer" element={<SummarizingTool />} />
-              <Route path="/translator" element={<TranslatorTool />} />
-              <Route path="/citation-generator" element={<CitationgeneratorTool />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signin" element={<SignIn />} />
+              <Route path="/" element={<HomePage isDarkMode={darkMode}/>} />
+              <Route path="/paraphrase" element={<ParaphrasingTool isDarkMode={darkMode}/>} />
+              <Route path="/grammar-checker" element={<GrammarcheckerTool isDarkMode={darkMode}/>} />
+              <Route path="/ai-detector" element={<AIdectectorTool isDarkMode={darkMode}/>} />
+              <Route path="/summarizer" element={<SummarizingTool isDarkMode={darkMode}/>} />
+              <Route path="/translator" element={<TranslatorTool isDarkMode={darkMode}/>} />
+              <Route path="/citation-generator" element={<CitationgeneratorTool isDarkMode={darkMode}/>} />
+              <Route path="/login" element={<Login isDarkMode={darkMode}/>} />
+              <Route path="/signin" element={<SignIn isDarkMode={darkMode}/>} />
             </Routes>
           </main>
         </div>
