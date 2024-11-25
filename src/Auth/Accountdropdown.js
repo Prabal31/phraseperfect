@@ -10,25 +10,12 @@ const AccountDropdown = () => {
         <span>Log in / Sign up</span>
       </Link>
       <div style={styles.menuItem}>
-        <FaGlobe style={styles.menuIcon} />
-        <span>English</span>
-        <span style={styles.arrow}>&gt;</span>
-      </div>
-      <div style={styles.menuItem}>
         <FaMoon style={styles.menuIcon} />
         <span>Dark mode</span>
         <div style={styles.toggleSwitch}>
           <input type="checkbox" id="darkMode" style={styles.checkbox} />
           <label htmlFor="darkMode" style={styles.switch}></label>
         </div>
-      </div>
-      <div style={styles.menuItem}>
-        <FaQuestionCircle style={styles.menuIcon} />
-        <span>Help Center</span>
-      </div>
-      <div style={styles.menuItem}>
-        <FaEnvelope style={styles.menuIcon} />
-        <span>Contact us</span>
       </div>
     </div>
   );
