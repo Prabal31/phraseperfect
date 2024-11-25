@@ -1,20 +1,34 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { FaSignInAlt, FaGlobe, FaMoon, FaQuestionCircle, FaEnvelope } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaMoon } from "react-icons/fa";
 
 const AccountDropdown = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prev) => !prev);
+    document.body.style.backgroundColor = darkMode ? "#fff" : "#333";
+    document.body.style.color = darkMode ? "#000" : "#fff";
+  };
+
   return (
     <div style={styles.dropdownMenu}>
-      <Link to="/login" style={styles.menuItem}>
-        <FaSignInAlt style={styles.menuIcon} />
-        <span>Log in / Sign up</span>
-      </Link>
+      {/* Dark Mode Toggle */}
       <div style={styles.menuItem}>
         <FaMoon style={styles.menuIcon} />
         <span>Dark mode</span>
-        <div style={styles.toggleSwitch}>
-          <input type="checkbox" id="darkMode" style={styles.checkbox} />
-          <label htmlFor="darkMode" style={styles.switch}></label>
+        <div
+          style={{
+            ...styles.toggleSwitch,
+            backgroundColor: darkMode ? "#6f469c" : "#ddd",
+          }}
+          onClick={toggleDarkMode}
+        >
+          <div
+            style={{
+              ...styles.switchKnob,
+              transform: darkMode ? "translateX(14px)" : "translateX(0)",
+            }}
+          ></div>
         </div>
       </div>
     </div>
@@ -24,15 +38,15 @@ const AccountDropdown = () => {
 const styles = {
   dropdownMenu: {
     position: "absolute",
-    top: "65px", // Positioned below the icon
-    right: "10px", // Add padding from the right edge
+    top: "65px",
+    right: "60px",
     width: "220px",
     backgroundColor: "#fff",
     borderRadius: "8px",
     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
     zIndex: 10,
     overflow: "hidden",
-    transition: "opacity 0.3s ease, transform 0.3s ease", // Smooth transition
+    transition: "opacity 0.3s ease, transform 0.3s ease",
   },
   menuItem: {
     display: "flex",
@@ -51,35 +65,24 @@ const styles = {
     marginRight: "12px",
     color: "#555",
   },
-  arrow: {
-    marginLeft: "auto",
-    color: "#888",
-    fontSize: "1rem",
-  },
   toggleSwitch: {
-    marginLeft: "auto",
     position: "relative",
     width: "34px",
     height: "20px",
-  },
-  checkbox: {
-    opacity: 0,
-    width: 0,
-    height: 0,
-  },
-  switch: {
-    position: "absolute",
-    cursor: "pointer",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: "#ddd",
     borderRadius: "20px",
-    transition: "0.3s",
+    cursor: "pointer",
+    transition: "background-color 0.3s ease",
+    marginLeft: "auto",
   },
-  switchChecked: {
-    backgroundColor: "#6F469C",
+  switchKnob: {
+    position: "absolute",
+    height: "14px",
+    width: "14px",
+    borderRadius: "50%",
+    backgroundColor: "white",
+    top: "3px",
+    left: "3px",
+    transition: "transform 0.3s ease",
   },
 };
 
