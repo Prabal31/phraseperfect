@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
-import { MdOutlineAccountCircle } from "react-icons/md";
+import { FaUserCircle } from "react-icons/fa"; // Import FontAwesome icon
 import CompanyLogo from "../Assets/Company_logo.png";
 import Accountdropdown from "../Auth/Accountdropdown";
 
@@ -24,9 +24,8 @@ const Header = () => {
             </div>
           </Link>
           {/* Account Icon and Dropdown */}
-            {/* Account Icon and Dropdown */}
-          <div style={styles.iconContainer}>
-            <MdOutlineAccountCircle style={styles.icon} onClick={toggleDropdown} /> {/* Toggle dropdown on click */}
+    \      <div style={styles.iconContainer}>
+            <FaUserCircle style={styles.icon} onClick={toggleDropdown} /> {/* Use FontAwesome icon */}
             {isDropdownVisible && <Accountdropdown />} {/* Show dropdown if visible */}
           </div>
         </header>
