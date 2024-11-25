@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const LoginPage = () => {
+const LoginPage = ({isDarkMode}) => {
   return (
     <div style={styles.loginContainer}>
       <div style={styles.loginBox}>
