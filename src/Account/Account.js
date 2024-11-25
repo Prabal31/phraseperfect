@@ -9,7 +9,6 @@ const LoginPage = () => {
 
         {/* Divider */}
         <div style={styles.divider}>
-          <span style={styles.dividerText}>OR</span>
         </div>
 
         {/* Login Form */}
@@ -118,8 +117,8 @@ const styles = {
   },
   passwordToggle: {
     position: "absolute",
-    top: "50%",
-    right: "10px",
+    top: "40%",
+    left: "95%",
     transform: "translateY(-50%)",
     background: "none",
     border: "none",

@@ -17,9 +17,10 @@ const Header = () => {
               <h1 style={styles.logoText}>PhrasePerfect</h1>
             </div>
           </Link>
-          <span style={styles.iconContainer}>
-            <MdOutlineAccountCircle style={styles.icon} />
-          </span>
+           {/* Link to Account page */}
+            <Link to="/account" style={styles.iconContainer}>
+              <MdOutlineAccountCircle style={styles.icon} />
+            </Link>
         </header>
     );
 };
