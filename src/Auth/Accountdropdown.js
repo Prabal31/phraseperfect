@@ -1,27 +1,17 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link for navigation
+import React from "react";
+import { Link } from "react-router-dom";
+import { FaMoon, FaSignInAlt } from "react-icons/fa";
 
-import { FaMoon, FaSignInAlt } from "react-icons/fa"; // Icons for the dropdown menu
-
-
-const AccountDropdown = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setDarkMode((prev) => !prev);
-    document.body.style.backgroundColor = darkMode ? "#fff" : "#333";
-    document.body.style.color = darkMode ? "#000" : "#fff";
-  };
-
+const AccountDropdown = ({ darkMode, toggleDarkMode }) => {
   return (
     <div style={styles.dropdownMenu}>
-         {/* Login / Sign Up */}
+      {/* Login / Sign Up */}
       <Link to="/login" style={styles.menuItem}>
         <FaSignInAlt style={styles.menuIcon} />
         <span>Log in / Sign up</span>
       </Link>
       {/* Dark Mode Toggle */}
-      <div style={styles.menuItem}>
+      <div style={styles.menuItem} onClick={toggleDarkMode}>
         <FaMoon style={styles.menuIcon} />
         <span>Dark mode</span>
         <div
@@ -29,7 +19,6 @@ const AccountDropdown = () => {
             ...styles.toggleSwitch,
             backgroundColor: darkMode ? "#6f469c" : "#ddd",
           }}
-          onClick={toggleDarkMode}
         >
           <div
             style={{

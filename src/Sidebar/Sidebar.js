@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom"; // Import useLocation
+import { Link, useLocation } from "react-router-dom";
 import {
   FaFileAlt,
   FaCheckCircle,
@@ -7,10 +7,10 @@ import {
   FaQuoteRight,
   FaLanguage,
   FaPenNib,
-} from "react-icons/fa"; // Icons for sidebar options
+} from "react-icons/fa";
 
-const Sidebar = () => {
-  const location = useLocation(); // Get the current path
+const Sidebar = ({ isDarkMode }) => {
+  const location = useLocation();
 
   const options = [
     { icon: <FaFileAlt />, label: "Paraphraser", color: "#2ECC71", path: "/paraphrase" },
@@ -22,32 +22,48 @@ const Sidebar = () => {
   ];
 
   return (
-    <div style={styles.sidebar}>
+    <div
+      style={{
+        ...styles.sidebar,
+        backgroundColor: isDarkMode ? "#333" : "#fff",
+        color: isDarkMode ? "#fff" : "#333",
+        borderRight: isDarkMode ? "1px solid #444" : "1px solid #ddd",
+      }}
+    >
       <ul style={styles.options}>
         {options.map((option, index) => {
-          const isActive = location.pathname === option.path; // Check if the current path matches the item's path
+          const isActive = location.pathname === option.path;
           return (
             <li
               key={index}
               style={{
                 ...styles.option,
                 ...(isActive ? styles.activeOption : {}),
+                backgroundColor: isActive
+                  ? isDarkMode
+                    ? "#555"
+                    : "#f5f5f5"
+                  : "transparent",
+                color: isDarkMode ? "#fff" : "#333",
               }}
             >
-              <Link to={option.path} style={styles.link}>
-                <div style={{ ...styles.icon, backgroundColor: option.color }}>
+              <Link
+                to={option.path}
+                style={{
+                  ...styles.link,
+                  color: isDarkMode ? "#fff" : "#333",
+                }}
+              >
+                <div
+                  style={{
+                    ...styles.icon,
+                    backgroundColor: option.color,
+                  }}
+                >
                   {option.icon}
                 </div>
                 <span style={styles.label}>{option.label}</span>
               </Link>
-              {isActive && (
-                <div
-                  style={{
-                    ...styles.highlight,
-                    backgroundColor: option.color, // Match the highlight color to the tile's color
-                  }}
-                ></div>
-              )}
             </li>
           );
         })}
@@ -59,14 +75,13 @@ const Sidebar = () => {
 const styles = {
   sidebar: {
     width: "220px",
-    backgroundColor: "white",
-    borderRight: "1px solid #ddd",
     padding: "20px",
     paddingTop: "80px",
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
     left: 0,
+    transition: "background-color 0.3s ease, color 0.3s ease",
   },
   options: {
     listStyleType: "none",
@@ -77,16 +92,16 @@ const styles = {
   option: {
     display: "flex",
     alignItems: "center",
-    position: "relative", // Necessary for the highlight bar
+    position: "relative",
     padding: "10px 15px",
     borderRadius: "5px",
     marginBottom: "10px",
     cursor: "pointer",
     fontFamily: "'Arial', sans-serif",
-    transition: "background-color 0.3s ease",
+    transition: "background-color 0.3s ease, color 0.3s ease",
   },
   activeOption: {
-    backgroundColor: "#f5f5f5", // Subtle background for the active option
+    backgroundColor: "#f5f5f5",
   },
   link: {
     display: "flex",
@@ -107,18 +122,8 @@ const styles = {
   },
   label: {
     fontSize: "1rem",
-    color: "#333",
     fontWeight: "500",
   },
-  highlight: {
-    position: "absolute",
-    left: 0,
-    top: 0,
-    bottom: 0,
-    width: "5px", // Width of the highlight bar
-    borderRadius: "5px", // Rounded edges
-  },
-
 };
 
 export default Sidebar;

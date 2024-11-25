@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./Sidebar/Sidebar";
 import Header from "./Header/Header";
@@ -12,20 +12,26 @@ import TranslatorTool from "./Tools/TranslatorTool";
 import CitationgeneratorTool from "./Tools/CitationgeneratorTool";
 import Login from "./Auth/Login";
 import SignIn from "./Auth/Signin";
-
-
-
+import AccountDropdown from "./Auth/Accountdropdown"; // Import AccountDropdown
 
 const App = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prev) => !prev);
+    document.body.style.backgroundColor = darkMode ? "#fff" : "#333";
+    document.body.style.color = darkMode ? "#000" : "#fff";
+  };
+
   return (
     <Router>
-      <div style={styles.page}>
+      <div style={{ ...styles.page, backgroundColor: darkMode ? "#333" : "#fff", color: darkMode ? "#fff" : "#000" }}>
         <Header />
+        <AccountDropdown darkMode={darkMode} toggleDarkMode={toggleDarkMode} /> {/* Pass darkMode and toggle */}
         <div style={styles.container}>
-          <Sidebar />
+          <Sidebar isDarkMode={darkMode} /> {/* Pass darkMode */}
           <main style={styles.content}>
             <Routes>
-              {/* Define the routes for different pages */}
               <Route path="/" element={<HomePage />} />
               <Route path="/paraphrase" element={<ParaphrasingTool />} />
               <Route path="/grammar-checker" element={<GrammarcheckerTool />} />
@@ -35,7 +41,6 @@ const App = () => {
               <Route path="/citation-generator" element={<CitationgeneratorTool />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signin" element={<SignIn />} />
-
             </Routes>
           </main>
         </div>
