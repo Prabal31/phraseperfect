@@ -168,6 +168,15 @@ const styles = {
     color: "#007bff",
     textDecoration: "none",
   },
+  switchText: {
+    marginTop: "15px",
+    fontSize: "0.9rem",
+    color: "#555",
+  },
+  switchLink: {
+    color: "#007bff",
+    textDecoration: "underline",
+  }
 };
 
 export default LoginPage;
