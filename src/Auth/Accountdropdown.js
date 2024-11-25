@@ -38,7 +38,7 @@ const styles = {
   dropdownMenu: {
     position: "absolute",
     top: "65px", // Positioned below the icon
-    right: "60px", // Add padding from the right edge
+    right: "10px", // Add padding from the right edge
     width: "220px",
     backgroundColor: "#fff",
     borderRadius: "8px",
