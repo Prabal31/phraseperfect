@@ -33,43 +33,43 @@ const AccountDropdown = () => {
 
 const styles = {
     dropdownMenu: {
-        position: "absolute",
-        top: "65px", // Positioned below the icon
-        right: "70px", // Add padding from the right edge
-        width: "200px",
-        backgroundColor: "#fff",
-        borderRadius: "8px",
-        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-        zIndex: 10,
-        overflow: "hidden",
-        transition: "opacity 0.3s ease, transform 0.3s ease", // Smooth transition
-  },
-  menuItem: {
-    display: "flex",
-    alignItems: "center",
-    padding: "10px 15px",
-    color: "#333",
-    textDecoration: "none",
-    fontSize: "0.95rem",
-    fontWeight: "500",
-    borderBottom: "1px solid #eee",
-    transition: "background-color 0.2s ease",
-    cursor: "pointer",
-  },
-  menuIcon: {
-    fontSize: "1.2rem",
-    marginRight: "10px",
-    color: "#555",
-  },
-  arrow: {
-    marginLeft: "auto",
-    color: "#888",
-    fontSize: "1rem",
-  },
-  toggleSwitch: {
-    marginLeft: "auto",
-    cursor: "pointer",
-  },
-};
+      position: "absolute",
+      top: "65px", // Positioned below the icon
+      right: "60px", // Add padding from the right edge
+      width: "200px",
+      backgroundColor: "#fff",
+      borderRadius: "8px",
+      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+      zIndex: 10,
+      overflow: "hidden",
+      transition: "opacity 0.3s ease, transform 0.3s ease", // Smooth transition
+    },
+    menuItem: {
+      display: "flex",
+      alignItems: "center",
+      padding: "10px 15px",
+      color: "#333",
+      textDecoration: "none",
+      fontSize: "0.95rem",
+      fontWeight: "500",
+      borderBottom: "1px solid #eee",
+      transition: "background-color 0.2s ease",
+      cursor: "pointer",
+    },
+    menuIcon: {
+      fontSize: "1.2rem",
+      marginRight: "10px",
+      color: "#555",
+    },
+    arrow: {
+      marginLeft: "auto",
+      color: "#888",
+      fontSize: "1rem",
+    },
+    toggleSwitch: {
+      marginLeft: "auto",
+      cursor: "pointer",
+    },
+  };
 
 export default AccountDropdown;
