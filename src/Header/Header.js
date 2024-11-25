@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { MdOutlineAccountCircle } from "react-icons/md";
 import CompanyLogo from "../Assets/Company_logo.png";
+import Accountdropdown from ".auth/Accountdropdown";
 
 const Header = () => {
+  const [isHovered, setIsHovered] = useState(false);
     return (
+
         <header style={styles.header}>
           {/* Link to the homepage */}
           <Link to="/" style={styles.link}>
@@ -17,10 +20,15 @@ const Header = () => {
               <h1 style={styles.logoText}>PhrasePerfect</h1>
             </div>
           </Link>
-           {/* Link to Account page */}
-            <Link to="/login" style={styles.iconContainer}>
+          {/* Account Icon and Dropdown */}
+            <div
+              style={styles.iconContainer}
+              onMouseEnter={() => setIsHovered(true)} // Show dropdown on hover
+              onMouseLeave={() => setIsHovered(false)} // Hide dropdown when hover ends
+            >
               <MdOutlineAccountCircle style={styles.icon} />
-            </Link>
+              {isHovered && <Accountdropdown />} {/* Show dropdown when hovered */}
+            </div>
         </header>
     );
 };

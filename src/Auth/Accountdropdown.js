@@ -1,64 +1,40 @@
-import React, { useState } from "react";
-import { MdOutlineAccountCircle, MdLanguage, MdOutlineHelpOutline, MdMailOutline } from "react-icons/md";
-import { FaMoon } from "react-icons/fa";
+import React from "react";
 import { Link } from "react-router-dom";
+import { MdLanguage, MdOutlineHelpOutline, MdMailOutline } from "react-icons/md";
+import { FaMoon } from "react-icons/fa";
 
 const AccountDropdown = () => {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
-    <div
-      style={styles.iconContainer}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Account Icon */}
-      <MdOutlineAccountCircle style={styles.icon} />
-
-      {/* Dropdown Menu */}
-      {isHovered && (
-        <div style={styles.dropdownMenu}>
-          <Link to="/login" style={styles.menuItem}>
-            <MdOutlineAccountCircle style={styles.menuIcon} />
-            <span>Log in / Sign up</span>
-          </Link>
-          <div style={styles.menuItem}>
-            <MdLanguage style={styles.menuIcon} />
-            <span>English</span>
-            <span style={styles.arrow}>&gt;</span>
-          </div>
-          <div style={styles.menuItem}>
-            <FaMoon style={styles.menuIcon} />
-            <span>Dark mode</span>
-            <input type="checkbox" style={styles.toggleSwitch} />
-          </div>
-          <div style={styles.menuItem}>
-            <MdOutlineHelpOutline style={styles.menuIcon} />
-            <span>Help Center</span>
-          </div>
-          <div style={styles.menuItem}>
-            <MdMailOutline style={styles.menuIcon} />
-            <span>Contact us</span>
-          </div>
-        </div>
-      )}
+    <div style={styles.dropdownMenu}>
+      <Link to="/login" style={styles.menuItem}>
+        <span>Log in / Sign up</span>
+      </Link>
+      <div style={styles.menuItem}>
+        <MdLanguage style={styles.menuIcon} />
+        <span>English</span>
+        <span style={styles.arrow}>&gt;</span>
+      </div>
+      <div style={styles.menuItem}>
+        <FaMoon style={styles.menuIcon} />
+        <span>Dark mode</span>
+        <input type="checkbox" style={styles.toggleSwitch} />
+      </div>
+      <div style={styles.menuItem}>
+        <MdOutlineHelpOutline style={styles.menuIcon} />
+        <span>Help Center</span>
+      </div>
+      <div style={styles.menuItem}>
+        <MdMailOutline style={styles.menuIcon} />
+        <span>Contact us</span>
+      </div>
     </div>
   );
 };
 
 const styles = {
-  iconContainer: {
-    position: "relative",
-    display: "inline-block",
-  },
-  icon: {
-    fontSize: "2.5rem",
-    color: "#333",
-    cursor: "pointer",
-  },
   dropdownMenu: {
     position: "absolute",
-    top: "110%", // Position below the icon
+    top: "100%", // Positioned below the icon
     right: 0,
     width: "200px",
     backgroundColor: "#fff",
@@ -77,9 +53,10 @@ const styles = {
     fontWeight: "500",
     borderBottom: "1px solid #eee",
     transition: "background-color 0.2s ease",
+    cursor: "pointer",
   },
   menuIcon: {
-    fontSize: "1.5rem",
+    fontSize: "1.2rem",
     marginRight: "10px",
     color: "#555",
   },
