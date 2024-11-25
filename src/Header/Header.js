@@ -18,7 +18,7 @@ const Header = () => {
             </div>
           </Link>
            {/* Link to Account page */}
-            <Link to="/account" style={styles.iconContainer}>
+            <Link to="/login" style={styles.iconContainer}>
               <MdOutlineAccountCircle style={styles.icon} />
             </Link>
         </header>
