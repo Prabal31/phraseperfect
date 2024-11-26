@@ -74,6 +74,7 @@ const Sidebar = ({ isDarkMode }) => {
 
 const styles = {
   sidebar: {
+    
     width: "220px",
     padding: "20px",
     paddingTop: "80px",
