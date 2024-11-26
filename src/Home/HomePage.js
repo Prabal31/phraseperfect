@@ -96,6 +96,7 @@ const styles = {
     fontFamily: "'Arial', sans-serif",
     lineHeight: "1.6",
     width: "100%",
+    paddingBottom: "50px", // Add padding to ensure content does not overlap with the footer
   },
   hero: {
     display: "flex",
@@ -123,6 +124,7 @@ const styles = {
   },
   tools: {
     textAlign: "center",
+    marginTop: "40px", // Add margin to create space between sections
   },
   toolsTitle: {
     fontSize: "2rem",
@@ -138,6 +140,7 @@ const styles = {
     gap: "20px",
     justifyContent: "center",
     marginTop: "20px",
+    marginBottom: "40px", // Add margin to push content away from the footer
   },
   toolCard: {
     padding: "20px",
