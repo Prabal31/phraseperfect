@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TranslatorTool = () => {
+const TranslatorTool = ({ darkMode }) => {
   const [inputText, setInputText] = useState("");
   const [translatedText, setTranslatedText] = useState("");
   const [sourceLanguage, setSourceLanguage] = useState("Detect Language");
@@ -18,18 +18,21 @@ const TranslatorTool = () => {
   const styles = {
     container: {
       fontFamily: "Arial, sans-serif",
-      backgroundColor: "#f9f9f9",
+      backgroundColor: darkMode ? "#333" : "#f9f9f9",
+      color: darkMode ? "#fff" : "#000",
       minHeight: "100vh",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       paddingTop: "40px",
+      transition: "background-color 0.3s ease, color 0.3s ease",
     },
     toolbar: {
-      backgroundColor: "#fff",
+      backgroundColor: darkMode ? "#444" : "#fff",
+      color: darkMode ? "#fff" : "#000",
       width: "100%",
       padding: "10px 20px",
-      borderBottom: "1px solid #ddd",
+      borderBottom: darkMode ? "1px solid #555" : "1px solid #ddd",
       boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
       display: "flex",
       justifyContent: "space-between",
@@ -37,12 +40,12 @@ const TranslatorTool = () => {
     },
     dropdown: {
       padding: "8px 12px",
-      border: "1px solid #ddd",
+      border: darkMode ? "1px solid #555" : "1px solid #ddd",
       borderRadius: "5px",
       cursor: "pointer",
       fontSize: "1rem",
-      color: "#555",
-      backgroundColor: "#f9f9f9",
+      color: darkMode ? "#ddd" : "#555",
+      backgroundColor: darkMode ? "#555" : "#f9f9f9",
     },
     content: {
       display: "flex",
@@ -50,7 +53,7 @@ const TranslatorTool = () => {
       width: "100%",
       maxWidth: "1200px",
       marginTop: "20px",
-      backgroundColor: "#fff",
+      backgroundColor: darkMode ? "#444" : "#fff",
       padding: "20px",
       borderRadius: "8px",
       boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
@@ -67,32 +70,34 @@ const TranslatorTool = () => {
       height: "400px",
       fontSize: "16px",
       padding: "10px",
-      border: "1px solid #ddd",
+      border: darkMode ? "1px solid #555" : "1px solid #ddd",
       borderRadius: "5px",
+      backgroundColor: darkMode ? "#555" : "#fff",
+      color: darkMode ? "#fff" : "#000",
       resize: "none",
     },
     button: {
       padding: "10px 20px",
       fontSize: "14px",
       fontWeight: "bold",
-      border: "2px solid green",
+      border: `2px solid ${darkMode ? "#2ECC71" : "green"}`,
       borderRadius: "5px",
       cursor: "pointer",
-      color: "green",
-      backgroundColor: "white",
-      transition: "background-color 0.3s",
+      color: darkMode ? "#2ECC71" : "green",
+      backgroundColor: darkMode ? "#444" : "white",
+      transition: "background-color 0.3s ease, color 0.3s ease",
     },
     translateButton: {
       padding: "15px 30px",
       fontSize: "18px",
       fontWeight: "bold",
-      backgroundColor: "#2ECC71",
+      backgroundColor: darkMode ? "#2ECC71" : "green",
       color: "white",
       border: "none",
       borderRadius: "5px",
       cursor: "pointer",
       boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
-      transition: "background-color 0.3s",
+      transition: "background-color 0.3s ease",
     },
   };
 
