@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const GrammarcheckerTool = () => {
+const GrammarcheckerTool = ({ darkMode }) => {
   const [text, setText] = useState(""); // Input text
   const [correctedText, setCorrectedText] = useState(""); // Corrected text output
 
@@ -24,12 +24,14 @@ const GrammarcheckerTool = () => {
   const styles = {
     container: {
       fontFamily: "Arial, sans-serif",
-      backgroundColor: "#f9f9f9",
+      backgroundColor: darkMode ? "#333" : "#f9f9f9",
+      color: darkMode ? "#fff" : "#000",
       minHeight: "100vh",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       paddingTop: "40px",
+      transition: "background-color 0.3s ease, color 0.3s ease",
     },
     content: {
       display: "flex",
@@ -37,7 +39,8 @@ const GrammarcheckerTool = () => {
       width: "100%",
       maxWidth: "1200px",
       marginTop: "20px",
-      backgroundColor: "#fff",
+      backgroundColor: darkMode ? "#444" : "#fff",
+      color: darkMode ? "#fff" : "#000",
       padding: "20px",
       borderRadius: "8px",
       boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
@@ -53,8 +56,10 @@ const GrammarcheckerTool = () => {
       height: "500px",
       fontSize: "16px",
       padding: "10px",
-      border: "1px solid #ddd",
+      border: darkMode ? "1px solid #555" : "1px solid #ddd",
       borderRadius: "5px",
+      backgroundColor: darkMode ? "#555" : "#fff",
+      color: darkMode ? "#fff" : "#000",
       resize: "none",
     },
     rightPanel: {
@@ -67,7 +72,7 @@ const GrammarcheckerTool = () => {
       padding: "15px 30px",
       fontSize: "18px",
       fontWeight: "bold",
-      backgroundColor: "green",
+      backgroundColor: darkMode ? "#2ECC71" : "green",
       color: "white",
       border: "none",
       borderRadius: "5px",
@@ -84,11 +89,11 @@ const GrammarcheckerTool = () => {
       padding: "10px 20px",
       fontSize: "14px",
       fontWeight: "bold",
-      border: "2px solid green",
+      border: `2px solid ${darkMode ? "#2ECC71" : "green"}`,
       borderRadius: "5px",
       cursor: "pointer",
-      color: "green",
-      backgroundColor: "white",
+      color: darkMode ? "#2ECC71" : "green",
+      backgroundColor: darkMode ? "#444" : "white",
       transition: "background-color 0.3s",
       outline: "none",
     },
