@@ -40,12 +40,12 @@ const App = () => {
               <Route path="/" element={<HomePage darkMode={darkMode} />} />
               <Route path="/paraphrase" element={<ParaphrasingTool darkMode={darkMode} />} />
               <Route path="/grammar-checker" element={<GrammarcheckerTool darkMode={darkMode} />} />
-              <Route path="/ai-detector" element={<AIdectectorTool isDarkMode={darkMode} />} />
-              <Route path="/summarizer" element={<SummarizingTool isDarkMode={darkMode} />} />
-              <Route path="/translator" element={<TranslatorTool isDarkMode={darkMode} />} />
-              <Route path="/citation-generator" element={<CitationgeneratorTool isDarkMode={darkMode} />} />
-              <Route path="/login" element={<Login isDarkMode={darkMode} />} />
-              <Route path="/signin" element={<SignIn isDarkMode={darkMode} />} />
+              <Route path="/ai-detector" element={<AIdectectorTool darkMode={darkMode} />} />
+              <Route path="/summarizer" element={<SummarizingTool darkMode={darkMode} />} />
+              <Route path="/translator" element={<TranslatorTool darkMode={darkMode} />} />
+              <Route path="/citation-generator" element={<CitationgeneratorTool darkMode={darkMode} />} />
+              <Route path="/login" element={<Login darkMode={darkMode} />} />
+              <Route path="/signin" element={<SignIn darkMode={darkMode} />} />
             </Routes>
           </main>
         </div>
