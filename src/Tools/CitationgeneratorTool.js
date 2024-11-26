@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { BsKeyboard } from "react-icons/bs";
 
-const CitationGenerator = () => {
+const CitationGenerator = ({ darkMode }) => {
   const [citationStyle, setCitationStyle] = useState("APA 7th edition");
   const [searchText, setSearchText] = useState("");
 
@@ -22,18 +22,20 @@ const CitationGenerator = () => {
       flexDirection: "column",
       alignItems: "center",
       padding: "50px 20px",
-      backgroundColor: "#f9f9f9",
+      backgroundColor: darkMode ? "#333" : "#f9f9f9",
+      color: darkMode ? "#fff" : "#000",
       minHeight: "100vh",
+      transition: "background-color 0.3s ease, color 0.3s ease",
     },
     title: {
       fontSize: "2.5rem",
       fontWeight: "bold",
-      color: "#2c3e50",
+      color: darkMode ? "#2ECC71" : "#2c3e50",
       marginBottom: "10px",
     },
     subtitle: {
       fontSize: "1rem",
-      color: "#7f8c8d",
+      color: darkMode ? "#aaa" : "#7f8c8d",
       marginBottom: "40px",
     },
     toolbar: {
@@ -45,10 +47,11 @@ const CitationGenerator = () => {
     dropdown: {
       fontSize: "1rem",
       padding: "8px 12px",
-      border: "1px solid #ddd",
+      border: darkMode ? "1px solid #555" : "1px solid #ddd",
       borderRadius: "5px",
       cursor: "pointer",
-      backgroundColor: "#eef0f4",
+      backgroundColor: darkMode ? "#444" : "#eef0f4",
+      color: darkMode ? "#ddd" : "#555",
       fontWeight: "bold",
     },
     searchContainer: {
@@ -61,17 +64,21 @@ const CitationGenerator = () => {
     },
     searchBox: {
       width: "100%",
-      padding: "15px 50px 15px 40px", // Adjust padding for icon space
+      padding: "15px 50px 15px 40px",
       fontSize: "1rem",
-      border: "1px solid #ddd",
+      border: darkMode ? "1px solid #555" : "1px solid #ddd",
       borderRadius: "50px",
-      boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
+      backgroundColor: darkMode ? "#444" : "#fff",
+      color: darkMode ? "#fff" : "#000",
+      boxShadow: darkMode
+        ? "0 2px 5px rgba(255, 255, 255, 0.1)"
+        : "0 2px 5px rgba(0, 0, 0, 0.1)",
     },
     searchIcon: {
       position: "absolute",
       left: "15px",
       fontSize: "1.2rem",
-      color: "#95a5a6",
+      color: darkMode ? "#aaa" : "#95a5a6",
     },
     citeButton: {
       padding: "10px 20px",
@@ -82,6 +89,7 @@ const CitationGenerator = () => {
       cursor: "pointer",
       fontSize: "1rem",
       marginLeft: "10px",
+      transition: "background-color 0.3s ease",
     },
     actions: {
       display: "flex",
