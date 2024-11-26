@@ -20,21 +20,20 @@ const App = () => {
   const toggleDarkMode = () => {
     setDarkMode((prev) => !prev);
     document.body.style.backgroundColor = darkMode ? "#fff" : "#333";
-    document.body.style.color = darkMode ? "#000" : "#fff";
+    document.body.style.color = darkMode ? "#333" : "#fff";
   };
 
   return (
     <Router>
-      <div style={{ ...styles.page, backgroundColor: darkMode ? "#333" : "#fff", color: darkMode ? "#fff" : "#000" }}>
+      <div style={{ ...styles.page, backgroundColor: darkMode ? "#333" : "#fff", color: darkMode ? "#fff" : "#333" }}>
         <Header />
-        <AccountDropdown darkMode={darkMode} toggleDarkMode={toggleDarkMode} /> {/* Pass darkMode and toggle */}
         <div style={styles.container}>
           <Sidebar isDarkMode={darkMode} /> {/* Pass darkMode */}
           <main style={styles.content}>
             <Routes>
               <Route path="/" element={<HomePage darkMode={darkMode}/>} />
-              <Route path="/paraphrase" element={<ParaphrasingTool isDarkMode={darkMode}/>} />
-              <Route path="/grammar-checker" element={<GrammarcheckerTool isDarkMode={darkMode}/>} />
+              <Route path="/paraphrase" element={<ParaphrasingTool darkMode={darkMode}/>} />
+              <Route path="/grammar-checker" element={<GrammarcheckerTool darkMode={darkMode}/>} />
               <Route path="/ai-detector" element={<AIdectectorTool isDarkMode={darkMode}/>} />
               <Route path="/summarizer" element={<SummarizingTool isDarkMode={darkMode}/>} />
               <Route path="/translator" element={<TranslatorTool isDarkMode={darkMode}/>} />

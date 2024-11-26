@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ParaphrasingTool = () => {
+const ParaphrasingTool = (darkMode) => {
   const [text, setText] = useState("");
 
   const styles = {
@@ -114,6 +114,7 @@ const ParaphrasingTool = () => {
       setActiveMode(mode);
     }
   };
+  
 
   return (
     <div style={styles.container}>

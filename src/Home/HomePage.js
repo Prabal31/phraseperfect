@@ -17,7 +17,7 @@ const HomePage = ({ darkMode }) => {
     <div
       style={{
         ...styles.container,
-        backgroundColor: darkMode ? "#121212" : "#fff",
+        backgroundColor: darkMode ? "#333" : "#fff",
         color: darkMode ? "#fff" : "#333",
       }}
     >
@@ -25,7 +25,7 @@ const HomePage = ({ darkMode }) => {
       <section
         style={{
           ...styles.hero,
-          backgroundColor: darkMode ? "#1e1e1e" : "#f9f9f9",
+          backgroundColor: darkMode ? "#333" : "#f9f9f9",
         }}
       >
         <div>
