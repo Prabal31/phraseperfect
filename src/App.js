@@ -31,7 +31,6 @@ const App = () => {
     <Router>
       <div style={{ ...styles.page }}>
         <Header />
-        <AccountDropdown darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <div style={styles.container}>
           <Sidebar isDarkMode={darkMode} />
           <main style={styles.content}>
