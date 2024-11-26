@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SummarizingTool = () => {
+const SummarizingTool = ({ darkMode }) => {
   const [text, setText] = useState("");
   const [summary, setSummary] = useState("");
   const [summaryLength, setSummaryLength] = useState("Short");
@@ -22,18 +22,21 @@ const SummarizingTool = () => {
   const styles = {
     container: {
       fontFamily: "Arial, sans-serif",
-      backgroundColor: "#f9f9f9",
-      minHeight: "400%",
+      backgroundColor: darkMode ? "#333" : "#f9f9f9",
+      color: darkMode ? "#fff" : "#000",
+      minHeight: "100vh",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       paddingTop: "40px",
+      transition: "background-color 0.3s ease, color 0.3s ease",
     },
     toolbar: {
-      backgroundColor: "#fff",
+      backgroundColor: darkMode ? "#444" : "#fff",
+      color: darkMode ? "#fff" : "#000",
       width: "100%",
       padding: "10px 20px",
-      borderBottom: "1px solid #ddd",
+      borderBottom: darkMode ? "1px solid #555" : "1px solid #ddd",
       boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
       display: "flex",
       justifyContent: "space-between",
@@ -47,7 +50,7 @@ const SummarizingTool = () => {
       padding: "8px 12px",
       cursor: "pointer",
       fontSize: "1rem",
-      color: "#555",
+      color: darkMode ? "#ddd" : "#555",
       borderRadius: "5px",
       transition: "all 0.3s ease",
       fontWeight: "bold",
@@ -67,9 +70,8 @@ const SummarizingTool = () => {
       width: "100%",
       maxWidth: "1200px",
       marginTop: "20px",
-      backgroundColor: "#fff",
+      backgroundColor: darkMode ? "#444" : "#fff",
       padding: "20px",
-    
       borderRadius: "8px",
       boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
     },
@@ -84,19 +86,21 @@ const SummarizingTool = () => {
       height: "400px",
       fontSize: "16px",
       padding: "10px",
-      border: "1px solid #ddd",
+      border: darkMode ? "1px solid #555" : "1px solid #ddd",
       borderRadius: "5px",
+      backgroundColor: darkMode ? "#555" : "#fff",
+      color: darkMode ? "#fff" : "#000",
       resize: "none",
     },
     button: {
       padding: "10px 20px",
       fontSize: "14px",
       fontWeight: "bold",
-      border: "2px solid green",
+      border: `2px solid ${darkMode ? "#2ECC71" : "green"}`,
       borderRadius: "5px",
       cursor: "pointer",
-      color: "green",
-      backgroundColor: "white",
+      color: darkMode ? "#2ECC71" : "green",
+      backgroundColor: darkMode ? "#444" : "white",
       transition: "background-color 0.3s",
     },
     summarizeButton: {
@@ -138,7 +142,9 @@ const SummarizingTool = () => {
             min="0"
             max="10"
             step="1"
-            style={{ accentColor: "#2ECC71" }}
+            style={{
+              accentColor: darkMode ? "#2ECC71" : "green",
+            }}
             onChange={(e) =>
               setSummaryLength(e.target.value > 5 ? "Long" : "Short")
             }
