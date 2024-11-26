@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 
-const AIDetectorTool = () => {
+const AIDetectorTool = ({ darkMode }) => {
   const [text, setText] = useState("");
 
   const styles = {
     container: {
       fontFamily: "Arial, sans-serif",
-      backgroundColor: "#f9f9f9",
+      backgroundColor: darkMode ? "#333" : "#f9f9f9",
+      color: darkMode ? "#fff" : "#000",
       minHeight: "100vh",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       padding: "20px",
+      transition: "background-color 0.3s ease, color 0.3s ease",
     },
     content: {
       display: "flex",
@@ -19,7 +21,7 @@ const AIDetectorTool = () => {
       width: "100%",
       maxWidth: "1200px",
       marginTop: "20px",
-      backgroundColor: "#fff",
+      backgroundColor: darkMode ? "#444" : "#fff",
       padding: "20px",
       borderRadius: "8px",
       boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
@@ -30,7 +32,7 @@ const AIDetectorTool = () => {
       flexDirection: "column",
       gap: "20px",
       fontWeight: "bold",
-      color:"#F4D03F",
+      color: darkMode ? "#F4D03F" : "#F4D03F",
       fontSize: "2rem",
     },
     textarea: {
@@ -38,8 +40,10 @@ const AIDetectorTool = () => {
       height: "400px",
       fontSize: "16px",
       padding: "10px",
-      border: "1px solid #ddd",
+      border: darkMode ? "1px solid #555" : "1px solid #ddd",
       borderRadius: "5px",
+      backgroundColor: darkMode ? "#555" : "#fff",
+      color: darkMode ? "#fff" : "#000",
       resize: "none",
     },
     actionButtons: {
@@ -50,12 +54,12 @@ const AIDetectorTool = () => {
       padding: "10px 20px",
       fontSize: "14px",
       fontWeight: "bold",
-      border: "2px solid green",
+      border: `2px solid ${darkMode ? "#2ECC71" : "green"}`,
       borderRadius: "5px",
       cursor: "pointer",
-      color: "green",
-      backgroundColor: "white",
-      transition: "background-color 0.3s",
+      color: darkMode ? "#2ECC71" : "green",
+      backgroundColor: darkMode ? "#444" : "white",
+      transition: "background-color 0.3s ease",
     },
     rightPanel: {
       flex: 1,
@@ -65,24 +69,24 @@ const AIDetectorTool = () => {
       alignItems: "center",
       justifyContent: "center",
       gap: "20px",
-      borderLeft: "1px solid #ddd",
+      borderLeft: darkMode ? "1px solid #555" : "1px solid #ddd",
     },
     resultTitle: {
       fontSize: "3rem",
       fontWeight: "bold",
-      color: "#555",
+      color: darkMode ? "#FFD700" : "#555",
       marginBottom: "10px",
     },
     resultSubtitle: {
       fontSize: "1.1rem",
-      color: "#888",
+      color: darkMode ? "#888" : "#888",
       marginBottom: "20px",
       textAlign: "center",
     },
     progressBar: {
       width: "100%",
       height: "10px",
-      backgroundColor: "#f0f0f0",
+      backgroundColor: darkMode ? "#555" : "#f0f0f0",
       borderRadius: "5px",
       overflow: "hidden",
       position: "relative",
@@ -105,8 +109,8 @@ const AIDetectorTool = () => {
       alignItems: "center",
       padding: "10px 0",
       fontSize: "1rem",
-      borderBottom: "1px solid #eee",
-      color: "#555",
+      borderBottom: darkMode ? "1px solid #555" : "1px solid #eee",
+      color: darkMode ? "#fff" : "#555",
     },
     resultLabel: {
       display: "flex",
@@ -122,13 +126,13 @@ const AIDetectorTool = () => {
       padding: "15px 30px",
       fontSize: "18px",
       fontWeight: "bold",
-      backgroundColor: "green",
+      backgroundColor: darkMode ? "#2ECC71" : "green",
       color: "white",
       border: "none",
       borderRadius: "5px",
       cursor: "pointer",
       boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
-      transition: "background-color 0.3s",
+      transition: "background-color 0.3s ease",
     },
   };
 
