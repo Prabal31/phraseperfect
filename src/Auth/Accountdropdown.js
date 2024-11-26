@@ -1,3 +1,4 @@
+// AccountDropdown.js
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaMoon, FaSignInAlt } from "react-icons/fa";
@@ -5,12 +6,10 @@ import { FaMoon, FaSignInAlt } from "react-icons/fa";
 const AccountDropdown = ({ darkMode, toggleDarkMode }) => {
   return (
     <div style={styles.dropdownMenu}>
-      {/* Login / Sign Up */}
       <Link to="/login" style={styles.menuItem}>
         <FaSignInAlt style={styles.menuIcon} />
         <span>Log in / Sign up</span>
       </Link>
-      {/* Dark Mode Toggle */}
       <div style={styles.menuItem} onClick={toggleDarkMode}>
         <FaMoon style={styles.menuIcon} />
         <span>Dark mode</span>

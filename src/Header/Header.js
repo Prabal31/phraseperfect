@@ -1,46 +1,44 @@
+// Header.js
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
-import { FaUserCircle } from "react-icons/fa"; // Import FontAwesome icon
+import { Link } from "react-router-dom";
+import { FaUserCircle } from "react-icons/fa";
 import CompanyLogo from "../Assets/Company_logo.png";
-import AccountDropdown from "../Auth/Accountdropdown"; // Import the AccountDropdown component
+import AccountDropdown from "../Auth/Accountdropdown";
 
-const Header = () => {
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false); // State to track dropdown visibility
-  const dropdownRef = useRef(null); // Ref for the dropdown container
+const Header = ({ darkMode, toggleDarkMode }) => {
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const dropdownRef = useRef(null);
 
   const toggleDropdown = () => {
-    setIsDropdownVisible((prevState) => !prevState); // Toggle dropdown visibility
+    setIsDropdownVisible((prevState) => !prevState);
   };
 
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setIsDropdownVisible(false); // Close dropdown if clicking outside
+      setIsDropdownVisible(false);
     }
   };
 
   useEffect(() => {
-    // Attach a click event listener to detect outside clicks
     document.addEventListener("click", handleClickOutside);
     return () => {
-      // Clean up the event listener on component unmount
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
 
   return (
     <header style={styles.header}>
-      {/* Link to homepage */}
       <Link to="/" style={styles.link}>
         <div style={styles.logoContainer}>
           <img src={CompanyLogo} alt="Company Logo" style={styles.logoImage} />
           <h1 style={styles.logoText}>PhrasePerfect</h1>
         </div>
       </Link>
-
-      {/* Account Icon with Dropdown */}
       <div style={styles.iconContainer} ref={dropdownRef}>
         <FaUserCircle style={styles.icon} onClick={toggleDropdown} />
-        {isDropdownVisible && <AccountDropdown />} {/* Conditionally render the dropdown */}
+        {isDropdownVisible && (
+          <AccountDropdown darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        )}
       </div>
     </header>
   );
@@ -48,48 +46,48 @@ const Header = () => {
 
 const styles = {
   header: {
-    position: "fixed", // Keeps the header fixed at the top
+    position: "fixed",
     top: 0,
     left: 0,
-    width: "100%", // Spans full width
-    height: "60px", // Header height
-    backgroundColor: "#6F469C", // Purple background color
-    color: "white", // Text color
-    padding: "0 20px", // Padding for alignment
-    display: "flex", // Flexbox layout
-    alignItems: "center", // Center items vertically
-    justifyContent: "space-between", // Space between logo and icon
-    zIndex: 1000, // Ensure header is on top
-    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Add shadow
+    width: "100%",
+    height: "60px",
+    backgroundColor: "#6F469C",
+    color: "white",
+    padding: "0 20px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    zIndex: 1000,
+    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
   },
   link: {
-    textDecoration: "none", // Remove underline for the link
-    color: "white", // White text color
+    textDecoration: "none",
+    color: "white",
   },
   logoContainer: {
-    display: "flex", // Align logo and text in a row
-    alignItems: "center", // Center items vertically
-    gap: "10px", // Space between logo and text
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
   },
   logoImage: {
-    width: "40px", // Logo width
-    height: "40px", // Logo height
-    borderRadius: "50%", // Circular logo
-    objectFit: "cover", // Ensure logo fits nicely
+    width: "40px",
+    height: "40px",
+    borderRadius: "50%",
+    objectFit: "cover",
   },
   logoText: {
-    fontSize: "1.9rem", // Logo text size
-    fontWeight: "bold", // Bold text
-    margin: 0, // Remove margin
+    fontSize: "1.9rem",
+    fontWeight: "bold",
+    margin: 0,
   },
   iconContainer: {
-    position: "relative", // For dropdown positioning
-    marginRight: "30px", // Spacing on the right
+    position: "relative",
+    marginRight: "30px",
   },
   icon: {
-    fontSize: "2.5rem", // Account icon size
-    cursor: "pointer", // Pointer cursor
-    color: "white", // White icon color
+    fontSize: "2.5rem",
+    cursor: "pointer",
+    color: "white",
   },
 };
 

@@ -13,24 +13,26 @@ import TranslatorTool from "./Tools/TranslatorTool";
 import CitationgeneratorTool from "./Tools/CitationgeneratorTool";
 import Login from "./Auth/Login";
 import SignIn from "./Auth/Signin";
-import AccountDropdown from "./Auth/Accountdropdown";
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
     setDarkMode((prev) => !prev);
-    if (!darkMode) {
-      document.body.classList.add("dark-mode");
-    } else {
-      document.body.classList.remove("dark-mode");
-    }
+    document.body.style.backgroundColor = darkMode ? "#fff" : "#333";
+    document.body.style.color = darkMode ? "#333" : "#fff";
   };
 
   return (
     <Router>
-      <div style={{ ...styles.page }}>
-        <Header />
+      <div
+        style={{
+          ...styles.page,
+          backgroundColor: darkMode ? "#333" : "#fff",
+          color: darkMode ? "#fff" : "#333",
+        }}
+      >
+        <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <div style={styles.container}>
           <Sidebar isDarkMode={darkMode} />
           <main style={styles.content}>
