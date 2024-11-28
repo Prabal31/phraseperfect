@@ -66,7 +66,7 @@ const TranslatorTool = ({ darkMode }) => {
       alignItems: "center",
     },
     textarea: {
-      width: "100%",
+      width: "96%",
       height: "400px",
       fontSize: "16px",
       padding: "10px",
