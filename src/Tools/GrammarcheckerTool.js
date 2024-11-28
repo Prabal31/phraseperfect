@@ -52,7 +52,7 @@ const GrammarcheckerTool = ({ darkMode }) => {
       gap: "20px",
     },
     textarea: {
-      width: "100%",
+      width: "96%",
       height: "500px",
       fontSize: "16px",
       padding: "10px",
