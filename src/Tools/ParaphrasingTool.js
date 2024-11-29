@@ -20,7 +20,7 @@ const ParaphrasingTool = ({ darkMode }) => {
       backgroundColor: darkMode ? "#444" : "#fff",
       color: darkMode ? "#fff" : "#000",
       width: "100%",
-      padding: "10px 20px",
+      padding: "10px 0px",
       borderBottom: darkMode ? "1px solid #555" : "1px solid #ddd",
       boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
     },
