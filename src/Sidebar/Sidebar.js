@@ -76,7 +76,6 @@ const styles = {
   sidebar: {
     
     width: "220px",
-
     paddingTop: "80px",
     display: "flex",
     flexDirection: "column",
