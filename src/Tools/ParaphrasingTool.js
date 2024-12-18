@@ -7,6 +7,7 @@ const ParaphrasingTool = ({ darkMode }) => {
   
   const styles = {
     container: {
+      
       fontFamily: "Arial, sans-serif",
       backgroundColor: darkMode ? "#333" : "#f9f9f9",
       color: darkMode ? "#fff" : "#000",
