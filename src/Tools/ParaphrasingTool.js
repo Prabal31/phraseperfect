@@ -5,6 +5,7 @@ const ParaphrasingTool = ({ darkMode }) => {
   const [activeMode, setActiveMode] = useState("Standard");
 
   
+  
   const styles = {
     container: {
       
